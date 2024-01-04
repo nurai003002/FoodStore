@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?8j3g3r') format('truetype'),
+    url('fonts/icomoon.woff?8j3g3r') format('woff'),
+    url('fonts/icomoon.svg?8j3g3r#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-call-order:before {
+  content: "\e900";
+}
+.ico-capuccino:before {
+  content: "\e901";
+}
+.ico-chocolate:before {
+  content: "\e902";
+}
+.ico-coffee-beans:before {
+  content: "\e903";
+}
+.ico-coffee-cup:before {
+  content: "\e904";
+}
+.ico-french-press:before {
+  content: "\e905";
+}
+.ico-honey:before {
+  content: "\e906";
+}
+.ico-jelly:before {
+  content: "\e907";
+}
+.ico-juice1:before {
+  content: "\e908";
+}
+.ico-juice2:before {
+  content: "\e909";
+}
+.ico-kettle:before {
+  content: "\e90a";
+}
+.ico-latte:before {
+  content: "\e90b";
+}
+.ico-nature-product:before {
+  content: "\e90c";
+}
+.ico-premium-quality:before {
+  content: "\e90d";
+}
+.ico-sugar:before {
+  content: "\e90e";
+}
+.ico-support:before {
+  content: "\e90f";
+}
+.ico-truck:before {
+  content: "\e910";
+}
+.ico-wheel:before {
+  content: "\e911";
+}
