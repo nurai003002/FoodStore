@@ -21,22 +21,22 @@
                 <div class="col-lg-6">
                     <div class="fluid-left">
                         <div class="banner-content mb-40">
-                            <h1 class="title mb-30" data-aos="fade-up" data-aos-delay="100">Make Life Sweeter, One Treat at a Time</h1>
-                            <p class="text" data-aos="fade-up" data-aos-delay="100">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                            <h1 class="title mb-30" data-aos="fade-up" data-aos-delay="100">{{slide.title}}</h1>
+                            <p class="text" data-aos="fade-up" data-aos-delay="100">{{slide.descriptions}}
                             </p>
                             <div class="d-flex align-items-center gap-25 flex-wrap mt-40" data-aos="fade-up" data-aos-delay="200">
-                                <a href="menu.html" class="btn btn-lg btn-primary rounded-pill" title="Discover Item" target="_self">Discover Item</a>
+                                <a href="menu.html" class="btn btn-lg btn-primary rounded-pill" title="Discover Item" target="_self">Подробнее</a>
                                 <div class="author d-flex align-items-center gap-15">
                                     <div class="author-img">
                                         <div class="lazy-container rounded-pill ratio ratio-1-1">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-5.jpg' %}" alt="Person Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{slide.shef.url}}" alt="Person Image">
                                         </div>
                                     </div>
                                     <div class="content">
                                         <h6 class="name mb-0 font-sm">
-                                            <a href="contact.html" target="_self" title="Link">Hames Rodrigo</a>
+                                            <a href="contact.html" target="_self" title="Link">{{slide.name}}</a>
                                         </h6>
-                                        <span class="designation font-xsm">Founder & Ceo</span>
+                                        <span class="designation font-xsm">Генеральный Директор</span>
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +45,12 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-up">
                     <div class="banner-image mb-40 parallax-img" data-speed="0.1" data-revert="true">
-                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/banner/hero-banner-1.png' %}" alt="Banner Image">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{slide.image.url}}" alt="Banner Image">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bg-img" data-bg-image="{% static 'assets/images/banner/hero-banner-bg-1.png' %}"></div>
+        <div class="bg-img" data-bg-image="{{slide.backimage.url}}"></div>
     </section>
     <!-- Home-area end -->
 
@@ -60,12 +60,12 @@
             <div class="row align-items-center gx-xl-5">
                 <div class="col-lg-6" data-aos="fade-up">
                     <div class="image mb-40">
-                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/about-1.png' %}" alt="Image">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{achievement.image.url}}" alt="Image">
 
                         <div class="absolute-text bg-primary">
                             <div class="center-text">
-                                <span class="h3 color-dark">05+</span>
-                                <span class="h4 mb-0 color-dark">Years Of Experience</span>
+                                <span class="h3 color-dark">{{achievement.experience}}</span>
+                                <span class="h4 mb-0 color-dark"></span>
                             </div>
                         </div>
                     </div>
@@ -73,11 +73,11 @@
                 <div class="col-lg-6" data-aos="fade-up">
                     <div class="content-title pb-10 ps-xl-2">
                         <h2 class="title mb-20">
-                            Quality And Passion With Our Services Priority
+                           {{achievement.title}}
                         </h2>
                         <div class="content-text">
                             <p>
-                                The study is the work of researchers at Nottingham University’s School of Medicine who focused on chemicals known as antigens.In particular, they cause our bodies to make auto-antibodies that target and try to block those invading antigens.
+                                {{achievement.descriptions}}
                             </p>
                         </div>
                         <div class="info-list mt-30">
@@ -88,9 +88,8 @@
                                             <i class="ico-premium-quality"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6 class="card-title mb-2">Premium Quality</h6>
-                                            <p class="card-text">We provide premium
-                                                & quality food items</p>
+                                            <h6 class="card-title mb-2">{{achievement.name1}}</h6>
+                                            <p class="card-text">{{achievement.mini_descriptions1}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -100,11 +99,8 @@
                                             <i class="ico-call-order"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6 class="card-title mb-2">Online Delivery</h6>
-                                            <p class="card-text">
-                                                We provide fast online
-                                                delivery for all items
-                                            </p>
+                                            <h6 class="card-title mb-2">{{achievement.name2}}</h6>
+                                            <p class="card-text">{{achievement.mini_descriptions2}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -114,9 +110,8 @@
                                             <i class="ico-nature-product"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6 class="card-title mb-2">100% Pure Food</h6>
-                                            <p class="card-text">We provide 100& Pure
-                                                & handmade foods</p>
+                                            <h6 class="card-title mb-2">{{achievement.name3}}</h6>
+                                            <p class="card-text">{{achievement.mini_descriptions3}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,9 +121,8 @@
                                             <i class="ico-support"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6 class="card-title mb-2">24/7 Hours Open</h6>
-                                            <p class="card-text">Our shop always 24/7
-                                                hours open for you</p>
+                                            <h6 class="card-title mb-2">{{achievement.name4}}</h6>
+                                            <p class="card-text">{{achievement.mini_descriptions4}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -148,52 +142,25 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title title-center mb-50" data-aos="fade-up">
-                        <h2 class="title mb-0">Explore Our Most Popular Bakery & Pastry Items</h2>
+                        <h2 class="title mb-0">Наши популярные кондитерские изделия</h2>
                     </div>
                 </div>
                 <div class="col-12" data-aos="fade-up">
                     <div class="swiper category-slider" id="category-slider-1" data-slides-per-view="4" data-swiper-loop="true">
                         <div class="swiper-wrapper">
+                            {% for bakery in bakery %}
                             <div class="swiper-slide">
                                 <div class="card text-center p-40 rounded-circle">
                                     <div class="card-image mb-10 mx-auto">
                                         <a href="shop.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/category/food/cat-1.png' %}" alt="Image">
+                                            <img class="lazyload" src="{{bakery.image.url}}" data-src="{{bakery.image.url}}     " alt="Image">
                                         </a>
                                     </div>
-                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Chocolate Cake">Chocolate Cake</a></h6>
+                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Chocolate Cake">{{bakery.title}}</a></h6>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="card text-center p-40 rounded-circle">
-                                    <div class="card-image mb-10 mx-auto">
-                                        <a href="shop.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/category/food/cat-2.png' %}" alt="Image">
-                                        </a>
-                                    </div>
-                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Bread Items">Bread Items</a></h6>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card text-center p-40 rounded-circle">
-                                    <div class="card-image mb-10 mx-auto">
-                                        <a href="shop.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/category/food/cat-3.png' %}" alt="Image">
-                                        </a>
-                                    </div>
-                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Pastry Items">Pastry Items</a></h6>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card text-center p-40 rounded-circle">
-                                    <div class="card-image mb-10 mx-auto">
-                                        <a href="shop.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/category/food/cat-4.png' %}" alt="Image">
-                                        </a>
-                                    </div>
-                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Fruits Cake">Fruits Cake</a></h6>
-                                </div>
-                            </div>
+                            {% endfor %}
+                          
                         </div>
                         <div class="swiper-pagination position-static mt-40" id="category-slider-1-pagination"></div>
                     </div>
@@ -209,431 +176,87 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title title-center mb-20" data-aos="fade-up">
-                        <h2 class="title mb-30">Find Out Your Favorite Bakery And Pastry Foods</h2>
+                        <h2 class="title mb-30">Узнайте свои любимые кондитерские изделия</h2>
                         <div class="tabs-navigation tabs-navigation-2 mb-30">
                             <ul class="nav nav-tabs border-bottom" data-hover="fancyHover">
                                 <li class="nav-item active">
-                                    <button class="nav-link hover-effect active btn-lg" data-bs-toggle="tab" data-bs-target="#tab1" type="button">All</button>
+                                    <button class="nav-link hover-effect active btn-lg" data-bs-toggle="tab" data-bs-target="#tab0" type="button">Все</button>
                                 </li>
-                                <li class="nav-item">
-                                    <button class="nav-link hover-effect btn-lg" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Donuts</button>
-                                </li>
-                                <li class="nav-item">
-                                    <button class="nav-link hover-effect btn-lg" data-bs-toggle="tab" data-bs-target="#tab3" type="button">Bread</button>
-                                </li>
-                                <li class="nav-item">
-                                    <button class="nav-link hover-effect btn-lg" data-bs-toggle="tab" data-bs-target="#tab4" type="button">Cake</button>
-                                </li>
+                                {% for category in categories %}
+                                    <li class="nav-item">
+                                        <button class="nav-link hover-effect btn-lg" data-bs-toggle="tab" data-bs-target="#tab{{ category.id }}" type="button">{{ category.name }}</button>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="tab-content" data-aos="fade-up">
-                        <div class="tab-pane slide show active" id="tab1">
+                        <div class="tab-pane slide show active" id="tab0">
                             <div class="row">
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-1.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">Butter Bread</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$5.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-2.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Softfoam Cake">Softfoam Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$5.00</span>
+                                {% for menu_item in menu %}
+                                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="product text-center p-40 rounded-circle mb-25">
+                                            <figure class="product-img mb-10 mx-auto">
+                                                <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ menu_item.image.url }}" alt="Image">
+                                                </a>
+                                                <div class="hover-show">
+                                                    <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details">
+                                                <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
+                                                <div class="product-price">
+                                                    <span class="h6 new-price color-primary">{{ menu_item.price_now }}</span>
+                                                    <span class="prev-price font-sm">{{ menu_item.price_before }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-3.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Chocolate Cookie">Chocolate Cookie</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$9.00</span>
-                                                <span class="prev-price font-sm">$8.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-4.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Fruits Cake">Fruits Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$3.00</span>
-                                                <span class="prev-price font-sm">$5.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-5.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Candy Donut">Candy Donut</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Coco Danish">Coco Danish</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$8.00</span>
-                                                <span class="prev-price font-sm">$9.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-7.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Muffin Cake">Muffin Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$3.00</span>
-                                                <span class="prev-price font-sm">$4.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-8.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Potato Ball">Potato Ball</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$3.23</span>
-                                                <span class="prev-price font-sm">$4.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
-                        <div class="tab-pane slide" id="tab2">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
+                        {% for category in categories %}
+                            <div class="tab-pane slide show" id="tab{{ category.id }}">
+                                <div class="row">
+                                    {% for menu_item in menu %}
+                                        {% if menu_item.category == category %}
+                                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                                <div class="product text-center p-40 rounded-circle mb-25">
+                                                    <figure class="product-img mb-10 mx-auto">
+                                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ menu_item.image.url }}" alt="Image">
+                                                        </a>
+                                                        <div class="hover-show">
+                                                            <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
+                                                        </div>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
+                                                        <div class="product-price">
+                                                            <span class="h6 new-price color-primary">{{ menu_item.price_now }}</span>
+                                                            <span class="prev-price font-sm">{{ menu_item.price_before }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Coco Danish">Coco Danish</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-7.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Muffin Cake">Muffin Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$3.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-8.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Potato Ball">Potato Ball</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$8.00</span>
-                                                <span class="prev-price font-sm">$7.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-4.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Fruits Cake">Fruits Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$8.00</span>
-                                                <span class="prev-price font-sm">$9.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane slide" id="tab3">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-1.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">Butter Bread</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$3.00</span>
-                                                <span class="prev-price font-sm">$4.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-4.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Fruits Cake">Fruits Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$6.00</span>
-                                                <span class="prev-price font-sm">$8.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-5.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Candy Donut">Candy Donut</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Coco Danish">Coco Danish</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$05.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane slide" id="tab4">
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-2.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Softfoam Cake">Softfoam Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$05.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-3.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Chocolate Cookie">Chocolate Cookie</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$05.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Coco Danish">Coco Danish</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$05.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="product text-center p-40 rounded-circle mb-25">
-                                        <figure class="product-img mb-10 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-7.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Muffin Cake">Muffin Cake</a></h5>
-                                            <div class="product-price">
-                                                <span class="h6 new-price color-primary">$05.00</span>
-                                                <span class="prev-price font-sm">$10.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="cta-btn text-center mt-15 mb-25">
-                        <a href="shop.html" class="btn btn-lg btn-primary rounded-pill" title="More Items" target="_self">More Items</a>
+                        <a href="shop.html" class="btn btn-lg btn-primary rounded-pill" title="More Items" target="_self">Подробнее</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    
     <!-- Product-area end -->
 
     <!-- Product-area start -->
@@ -643,68 +266,35 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title title-center mb-50" data-aos="fade-up">
-                        <h2 class="title">We Offer Low Prices on All Bakery & Pastry Food</h2>
+                        <h2 class="title">
+                            Предлагаем низкие цены на всю хлебобулочную продукцию.</h2>
                     </div>
                 </div>
                 <div class="col-12" data-aos="fade-up">
                     <div class="row">
+                        {% for discount in discount %}
                         <div class="col-md-6 col-xl-4">
                             <div class="product text-center p-30 radius-md mb-30">
                                 <div class="inner">
                                     <figure class="product-img mb-10 mx-auto">
                                         <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-10.png' %}" alt="Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{discount.image.url}}" alt="Image">
                                         </a>
                                     </figure>
                                     <div class="product-details">
-                                        <h3 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fresh Bred & Danish">Fresh Bred & Danish</a></h3>
+                                        <h3 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fresh Bred & Danish">{{discount.title}}</a></h3>
                                         <div class="product-price mb-15">
-                                            <span class="h4 new-price">$10.00</span>
-                                            <span class="prev-price">$12.00</span>
+                                            <span class="h4 new-price">{{discount.price_now}}</span>
+                                            <span class="prev-price">{{discount.price_before}}</span>
                                         </div>
-                                        <p class="product-text mb-25">Donec et nibh maximus, congue est euouru mattis nunc. Praesentut quam quis quam venenatis fringilla. Morbi vestibulumn.</p>
-                                        <a href="cart.html" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Place Your Order</a>
+                                        <p class="product-text mb-25">{{discount.descriptions}}</p>
+                                        <a href="cart.html" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Заказать</a>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="product text-center p-30 radius-md mb-30">
-                                <figure class="product-img mb-10 mx-auto">
-                                    <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-9.png' %}" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="product-details">
-                                    <h3 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Black Chocolate Items">Black Chocolate Items</a></h3>
-                                    <div class="product-price mb-15">
-                                        <span class="h4 new-price">$14.00</span>
-                                        <span class="prev-price">$16.00</span>
-                                    </div>
-                                    <p class="product-text mb-25">Morbi elementum bibendum enim non sollicitudin. Cras mattis sem sed mi faucibus laoreet at lorem sem. Morbi convallis tincidunt Sed velit.</p>
-                                    <a href="cart.html" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Place Your Order</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-4">
-                            <div class="product text-center p-30 radius-md mb-30">
-                                <figure class="product-img mb-10 mx-auto">
-                                    <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/food/pro-11.png' %}" alt="Image">
-                                    </a>
-                                </figure>
-                                <div class="product-details">
-                                    <h3 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Birthday Fruits Cake">Birthday Fruits Cake</a></h3>
-                                    <div class="product-price mb-15">
-                                        <span class="h4 new-price">$12.00</span>
-                                        <span class="prev-price">$11.00</span>
-                                    </div>
-                                    <p class="product-text mb-25">Curabitur non ex laoreet, hendrerit lectus ut, viverra enim. Aliquam finibus justo eget lacinia commodo. Curabitur venenatis eget.</p>
-                                    <a href="cart.html" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Place Your Order</a>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -720,110 +310,55 @@
                 <div class="col-lg-6">
                     <div class="content-title mb-40" data-aos="fade-up">
                         <h2 class="title mb-20">
-                            Wonderful Words from Our Satisfied Clients
+                            
+Замечательные слова наших довольных клиентов
                         </h2>
                         <div class="content-text mb-40">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic enim minus numquam necessitatibus soluta sed quidem excepturi omnis voluptatem, beatae, quisquam iusto nulla aperiam aliquid et laborum. Magnam accusamus voluptatum officia facere.
+                                {{clients.descriptions}}
                             </p>
                         </div>
                     </div>
                     <div class="swiper mb-40" id="testimonial-slider-1" data-aos="fade-up">
                         <div class="swiper-wrapper">
+                            {% for clients in clients.clients_words.all %}
                             <div class="swiper-slide">
                                 <div class="slider-item radius-md">
                                     <div class="client gap-20 flex-wrap">
                                         <div class="client-info d-flex align-items-center">
                                             <div class="client-img">
                                                 <div class="lazy-container rounded-circle ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-1.jpg' %}" alt="Person Image">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{clients.image2.url}}" alt="Person Image">
                                                 </div>
                                             </div>
                                             <div class="content">
-                                                <h6 class="name mb-1">John Morris</h6>
-                                                <span class="designation font-sm">Food Reviewer</span>
+                                                <h6 class="name mb-1">{{clients.name}}</h6>
+                                                <span class="designation font-sm"></span>
                                             </div>
                                         </div>
                                         <div class="ratings size-md flex-column align-items-start gap-2">
                                             <div class="rate">
                                                 <div class="rating-icon"></div>
                                             </div>
-                                            <div class="ratings-total">5 star of 20 review</div>
+                                            <div class="ratings-total">5 звезд из 20 отзывов</div>
                                         </div>
                                     </div>
                                     <div class="quote">
                                         <span class="icon"><i class="fal fa-quote-right"></i></span>
                                         <p class="text font-lg mb-0">
-                                            Lorem sit amet nulla massa. Nulla facilisi. Sed purus dui, luctus eget lectus quis, volutpat volutpat est. Aliquam porttitor vitae lacus ac imperdiet. Aliquam luctus lacinia felis, vel rutrum ex tempus at Donec malesuada mauris in leo.
+                                            {{clients.descriptions2}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="slider-item radius-md">
-                                    <div class="client gap-20 flex-wrap">
-                                        <div class="client-info d-flex align-items-center">
-                                            <div class="client-img">
-                                                <div class="lazy-container rounded-circle ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-2.jpg' %}" alt="Person Image">
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <h6 class="name mb-1">Kelly Minar</h6>
-                                                <span class="designation font-sm">Cake Designer</span>
-                                            </div>
-                                        </div>
-                                        <div class="ratings size-md flex-column align-items-start gap-2">
-                                            <div class="rate">
-                                                <div class="rating-icon"></div>
-                                            </div>
-                                            <div class="ratings-total">5 star of 20 review</div>
-                                        </div>
-                                    </div>
-                                    <div class="quote">
-                                        <span class="icon"><i class="fal fa-quote-right"></i></span>
-                                        <p class="text font-lg mb-0">
-                                            Pellentesque sit amet nulla massa. Nulla facilisi. Sed purus dui, luctus eget lectus quis, volutpat volutpat est. Aliquam porttitor vitae lacus ac imperdiet. Aliquam luctus lacinia felis, vel rutrum ex tempus at Donec malesuada mauris in leo.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="slider-item radius-md">
-                                    <div class="client gap-20 flex-wrap">
-                                        <div class="client-info d-flex align-items-center">
-                                            <div class="client-img">
-                                                <div class="lazy-container rounded-circle ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-3.jpg' %}" alt="Person Image">
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <h6 class="name mb-1">Maria May</h6>
-                                                <span class="designation font-sm">CEO, Foodcred</span>
-                                            </div>
-                                        </div>
-                                        <div class="ratings size-md flex-column align-items-start gap-2">
-                                            <div class="rate">
-                                                <div class="rating-icon"></div>
-                                            </div>
-                                            <div class="ratings-total">5 star of 20 review</div>
-                                        </div>
-                                    </div>
-                                    <div class="quote">
-                                        <span class="icon"><i class="fal fa-quote-right"></i></span>
-                                        <p class="text font-lg mb-0">
-                                            Donec sit amet nulla massa. Nulla facilisi. Sed purus dui, luctus eget lectus quis, volutpat volutpat est. Aliquam porttitor vitae lacus ac imperdiet. Aliquam luctus lacinia felis, vel rutrum ex tempus at Donec malesuada mauris in leo.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="swiper-pagination position-static mt-30" id="testimonial-slider-1-pagination"></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="image mb-40" data-aos="fade-left">
-                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/testimonial-img-1.png' %}" alt="Image">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{clients.image.url}}" alt="Image">
                     </div>
                 </div>
             </div>
@@ -839,19 +374,20 @@
                     <div class="col-12">
                         <div class="section-title title-inline mb-50" data-aos="fade-up">
                             <div>
-                                <h2 class="title">Explore Our Blog Post</h2>
+                                <h2 class="title">Наши публикации</h2>
                             </div>
-                            <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Read Now">Read More</button>
+                            <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Read Now">Подробнее</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="row">
+                        {% for post in post %}
                         <div class="col-xl-4 col-md-6" data-aos="fade-up">
                             <article class="card mb-25 radius-md">
                                 <div class="card-img">
                                     <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/blog/blog-1.jpg' %}" alt="Blog Image">
+                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{post.image.url}}" alt="Blog Image">
                                     </a>
                                 </div>
                                 <div class="card-content radius-md p-25">
@@ -860,77 +396,22 @@
                                             <a href="blogs.html" target="_self" title="Link"><i class="fal fa-user"></i>By Admin</a>
                                         </li>
                                         <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>30.08.2023</a>
+                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{post.created_at}}</a>
                                         </li>
                                         <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-tag"></i>Pizza</a>
+                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-tag"></i>Пицца</a>
                                         </li>
                                     </ul>
                                     <h4 class="card-title lc-2 mb-15">
                                         <a href="blog-details.html" target="_self" title="Link">
-                                            10 Must-Try Restaurants That Will Take Your Taste Buds on a World Tour!
+                                            {{post.descriptions}}
                                         </a>
                                     </h4>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read More</a>
+                                    <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Подробнее</a>
                                 </div>
                             </article>
                         </div>
-                        <div class="col-xl-4 col-md-6" data-aos="fade-up">
-                            <article class="card mb-25 radius-md">
-                                <div class="card-img">
-                                    <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/blog/blog-2.jpg' %}" alt="Blog Image">
-                                    </a>
-                                </div>
-                                <div class="card-content radius-md p-25">
-                                    <ul class="card-list list-unstyled mb-15">
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-user"></i>By Max</a>
-                                        </li>
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>03.06.2023</a>
-                                        </li>
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-tag"></i>Drinks</a>
-                                        </li>
-                                    </ul>
-                                    <h4 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
-                                            From Foodie Heaven to Budget-Friendly Eats: Top Restaurants for Every Palate!
-                                        </a>
-                                    </h4>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read More</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-xl-4 col-md-6" data-aos="fade-up">
-                            <article class="card mb-25 radius-md">
-                                <div class="card-img">
-                                    <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                        <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/blog/blog-3.jpg' %}" alt="Blog Image">
-                                    </a>
-                                </div>
-                                <div class="card-content radius-md p-25">
-                                    <ul class="card-list list-unstyled mb-15">
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-user"></i>By Linda</a>
-                                        </li>
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>21.01.2023</a>
-                                        </li>
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-tag"></i>Food</a>
-                                        </li>
-                                    </ul>
-                                    <h4 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
-                                            Restaurant Secrets Revealed: The Inside Scoop on Creating Irresistible Dishes!
-                                        </a>
-                                    </h4>
-                                    <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read More</a>
-                                </div>
-                            </article>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -943,46 +424,17 @@
         <div class="container">
             <div class="swiper gallery-slider">
                 <div class="swiper-wrapper">
+                    {% for allfood in allfood %}
                     <div class="swiper-slide">
                         <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
                             <div class="lazy-container ratio ratio-2-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-1.png' %}" alt="Image">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{allfood.image.url}}" alt="Image">
                             </div>
-                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.instagram.url}}" alt="Image"></div>
                         </a>
                     </div>
-                    <div class="swiper-slide">
-                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
-                            <div class="lazy-container ratio ratio-2-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-2.png' %}" alt="Image">
-                            </div>
-                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
-                            <div class="lazy-container ratio ratio-2-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-3.png' %}" alt="Image">
-                            </div>
-                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
-                            <div class="lazy-container ratio ratio-2-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-4.png' %}" alt="Image">
-                            </div>
-                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
-                            <div class="lazy-container ratio ratio-2-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-5.png' %}" alt="Image">
-                            </div>
-                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
-                        </a>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
