@@ -24,6 +24,8 @@ def menu(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
+    menu2 = models.Menu.objects.all()
+    categories2 = models.Category.objects.all()
     return render(request, 'menu.html', locals())
 
 
@@ -34,3 +36,34 @@ def shop(request):
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
     return render(request, 'shop.html', locals())
+
+
+def reservation(request):
+    settings = Settings.objects.latest('id')
+    slide = models.Slide.objects.latest('id')
+    achievement = models.Achievement.objects.latest('id')
+    bakery = models.Bakery.objects.all()
+    menu = models.Menu.objects.all()
+    categories = models.Category.objects.all()
+    discount = models.Discount.objects.all()
+    clients = models.Clients.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id') 
+    return render(request, 'reservation.html', locals())
+
+def cart(request):
+    settings = Settings.objects.latest('id')
+    slide = models.Slide.objects.latest('id')
+    achievement = models.Achievement.objects.latest('id')
+    bakery = models.Bakery.objects.all()
+    menu = models.Menu.objects.all()
+    categories = models.Category.objects.all()
+    discount = models.Discount.objects.all()
+    clients = models.Clients.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id') 
+    return render(request, 'cart.html', locals())

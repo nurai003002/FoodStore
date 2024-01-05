@@ -1,0 +1,222 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-1.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+
+    <!-- Header-area start -->
+    {% include 'include/header.html' %}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{{slide.shef.url}}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">Корзина</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Корзина</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- Shopping-area Start -->
+    <div class="shopping-area cart ptb-100">
+        <div class="container">
+            <div class="row justify-content-center gx-xl-5">
+                <div class="col-lg-9">
+                    <form>
+                        <div class="item-list border radius-md table-responsive">
+                            <table class="shopping-table">
+                                <thead>
+                                    <tr class="table-heading">
+                                        <th scope="col" colspan="2" class="first">Продукты</th>
+                                        <th scope="col">Количество</th>
+                                        <th scope="col">Запас</th>
+                                        <th scope="col">Общий</th>
+                                        <th scope="col" class="last">Удалить</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="item">
+                                        <td class="product-img">
+                                            <div class="image">
+                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="Product">
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="product-desc">
+                                            <h6>
+                                                <a class="product-title mb-10" href="shop-details.html">Masala Chicken</a>
+                                            </h6>
+                                            <div class="ratings">
+                                                <div class="rate">
+                                                    <div class="rating-icon"></div>
+                                                </div>
+                                                <span class="ratings-total">(4.5)</span>
+                                            </div>
+                                        </td>
+                                        <td class="qty">
+                                            <div class="quantity-input">
+                                                <div class="qty-btn quantity-down">
+                                                    <i class="fal fa-minus"></i>
+                                                </div>
+                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
+                                                <div class="qty-btn quantity-up">
+                                                    <i class="fal fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-availability">
+                                            <span class="badge bg-success">In Stock</span>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">$14.00</h6>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
+                                                <i class="fal fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="item">
+                                        <td class="product-img">
+                                            <div class="image">
+                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-2.jpg' %}" alt="Product">
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="product-desc">
+                                            <h6>
+                                                <a class="product-title mb-10" href="shop-details.html">Grilled Chicken</a>
+                                            </h6>
+                                            <div class="ratings">
+                                                <div class="rate">
+                                                    <div class="rating-icon"></div>
+                                                </div>
+                                                <span class="ratings-total">(4.7)</span>
+                                            </div>
+                                        </td>
+                                        <td class="qty">
+                                            <div class="quantity-input">
+                                                <div class="qty-btn quantity-down">
+                                                    <i class="fal fa-minus"></i>
+                                                </div>
+                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
+                                                <div class="qty-btn quantity-up">
+                                                    <i class="fal fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-availability">
+                                            <span class="badge bg-success">In Stock</span>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">$13.00</h6>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
+                                                <i class="fal fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="item">
+                                        <td class="product-img">
+                                            <div class="image">
+                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-3.jpg' %}" alt="Product">
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td class="product-desc">
+                                            <h6>
+                                                <a class="product-title mb-10" href="shop-details.html">Chicken Pasta</a>
+                                            </h6>
+                                            <div class="ratings">
+                                                <div class="rate">
+                                                    <div class="rating-icon"></div>
+                                                </div>
+                                                <span class="ratings-total">(4.8)</span>
+                                            </div>
+                                        </td>
+                                        <td class="qty">
+                                            <div class="quantity-input">
+                                                <div class="qty-btn quantity-down">
+                                                    <i class="fal fa-minus"></i>
+                                                </div>
+                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
+                                                <div class="qty-btn quantity-up">
+                                                    <i class="fal fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-availability">
+                                            <span class="badge bg-warning">In Stock</span>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">$11.00</h6>
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
+                                                <i class="fal fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-groups mt-30">
+                            <a href="checkout.html" class="btn btn-md btn-primary" title="Checkout" target="_self">Checkout</a>
+                            <a href="{% url 'cart' %}" class="btn btn-md btn-primary" title="Update Cart" target="_self">Обновить корзину</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shopping-area End -->
+
+    <!-- Gallery-area start -->
+    <div class="gallery-area" data-aos="fade-up">
+        <div class="container">
+            <div class="swiper gallery-slider">
+                <div class="swiper-wrapper">
+                    {% for allfood in allfood %}
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{allfood.image.url}}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.instagram.url}}" alt="Image"></div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+
+    <!-- Jquery JS -->
+{% endblock %}

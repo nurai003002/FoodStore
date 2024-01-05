@@ -15,3 +15,13 @@ def index(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     return render(request, 'base/index.html', locals())
+
+
+def contacts(request):
+    settings = Settings.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id')
+    return render(request, 'contact.html', locals())
+

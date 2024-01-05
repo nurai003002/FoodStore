@@ -336,3 +336,48 @@ class SlideAbout(models.Model):
     class Meta:
         verbose_name = 'Главное фото О нас'
         verbose_name_plural = 'Главное фото О нас'
+
+class Category2(models.Model):
+    name = models.CharField(
+        max_length=255, 
+        verbose_name='Название категории'
+    )
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Категория2'
+        verbose_name_plural = 'Категории2'
+
+class Menu2(models.Model):
+    category = models.ForeignKey(Category2, on_delete=models.CASCADE, verbose_name='Категория')
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='bakery_image/',
+        verbose_name="Фото изделий",
+        blank=True, null=True
+    )
+    title = models.CharField(
+        max_length=255, 
+        verbose_name='Название изделия'
+    )
+    descriptions = models.TextField(
+        verbose_name = "Описание"
+    )
+    price_now = models.CharField(
+        max_length=255, 
+        verbose_name='Цена сейчас'
+    )
+    price_before = models.CharField(
+        max_length=255, 
+        verbose_name='Цена раньше'
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Меню2'
+        verbose_name_plural = 'Меню2'

@@ -53,6 +53,18 @@ class LastPostFilterAdmin(admin.ModelAdmin):
     list_display = ('descriptions', )
     search_fields = ('descriptions', )
 
+class Menu2FilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', )
+    search_fields = ('title', )
+
+class Categories2FilterAdmin(admin.ModelAdmin):
+    list_filter = ('name', )
+    list_display = ('name', )
+    search_fields = ('name', )
+
+admin.site.register(models.Category2, Categories2FilterAdmin)
+admin.site.register(models.Menu2, Menu2FilterAdmin)
 admin.site.register(models.SlideAbout)
 admin.site.register(models.LastPost, LastPostFilterAdmin)
 admin.site.register(models.AllFood)

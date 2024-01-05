@@ -1,0 +1,212 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-1.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+
+    <!-- Header-area start -->
+    {% include 'include/header.html' %}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{{slideabout.image.url}}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">Бронировать</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Бронировать</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- Reservation-area start -->
+    <div class="reservation-area ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9" data-aos="fade-up">
+                    <div class="wrapper bg-light radius-md">
+                        <div class="section-title title-center mb-50">
+                            <h2 class="title mb-0" data-aos="fade-up">
+                                Забронируйте столик
+                            </h2>
+                        </div>
+                        <form id="reservationForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="fullname">Полное имя <span class="color-red">*</span> </label>
+                                        <input type="text" name="fullname" class="form-control border-0 bg-white" id="fullname" required placeholder="Введите полное имя">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="email">Почта<span class="color-red">*</span> </label>
+                                        <input type="email" name="email" class="form-control border-0 bg-white" id="email" required placeholder="Введите почту">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="person">Выберите людей<span class="color-red">*</span> </label>
+                                        <select class="niceselect form-control border-0 bg-white" id="person">
+                                            <option value="1">1 человек</option>
+                                            <option value="2">2 человек</option>
+                                            <option value="3">3 человек</option>
+                                            <option value="4">4 человек</option>
+                                            <option value="5">5 человек</option>
+                                            <option value="6">6 человек</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="phone">Номер<span class="color-red">*</span> </label>
+                                        <input type="number" name="phone" class="form-control border-0 bg-white" id="phone" required placeholder="Введите номер телефона">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="date">Выберите дату<span class="color-red">*</span> </label>
+                                        <input type="date" name="date" class="form-control border-0 bg-white" id="date" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-20">
+                                        <label for="time">Выберите время<span class="color-red">*</span> </label>
+                                        <select class="niceselect form-control border-0 bg-white" id="time">
+                                            <option value="1">08.00 AM to 09.00 AM</option>
+                                            <option value="2">10.00 AM to 11.00 AM</option>
+                                            <option value="3">12.00 PM to 01.00 PM</option>
+                                            <option value="4">02.00 PM to 03.00 PM</option>
+                                            <option value="5">04.00 PM to 05.00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group mb-20">
+                                        <textarea name="message" id="message" class="form-control border-0 bg-white" cols="30" rows="8" placeholder="Сообщение....."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Make a Reservation">Забронировать</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reservation-area end -->
+
+    <!-- Testimonial-area start -->
+    <section class="testimonial-area testimonial-1 pt-100 pb-60">
+        <div class="overlay opacity-85"></div>
+        <div class="container">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6">
+                    <div class="content-title mb-40" data-aos="fade-up">
+                        <h2 class="title mb-20">
+                            
+Замечательные слова наших довольных клиентов
+                        </h2>
+                        <div class="content-text mb-40">
+                            <p>
+                                {{clients.descriptions}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper mb-40" id="testimonial-slider-1" data-aos="fade-up">
+                        <div class="swiper-wrapper">
+                            {% for clients in clients.clients_words.all %}
+                            <div class="swiper-slide">
+                                <div class="slider-item radius-md">
+                                    <div class="client gap-20 flex-wrap">
+                                        <div class="client-info d-flex align-items-center">
+                                            <div class="client-img">
+                                                <div class="lazy-container rounded-circle ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{clients.image2.url}}" alt="Person Image">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="name mb-1">{{clients.name}}</h6>
+                                                <span class="designation font-sm"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ratings size-md flex-column align-items-start gap-2">
+                                            <div class="rate">
+                                                <div class="rating-icon"></div>
+                                            </div>
+                                            <div class="ratings-total">5 звезд из 20 отзывов</div>
+                                        </div>
+                                    </div>
+                                    <div class="quote">
+                                        <span class="icon"><i class="fal fa-quote-right"></i></span>
+                                        <p class="text font-lg mb-0">
+                                            {{clients.descriptions2}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination position-static mt-30" id="testimonial-slider-1-pagination"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="image mb-40" data-aos="fade-left">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{clients.image.url}}" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial-area end -->
+
+    <!-- Gallery-area start -->
+    <div class="gallery-area" data-aos="fade-up">
+        <div class="container">
+            <div class="swiper gallery-slider">
+                <div class="swiper-wrapper">
+                    {% for allfood in allfood %}
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{allfood.image.url}}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.instagram.url}}" alt="Image"></div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+{% endblock %}
