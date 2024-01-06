@@ -27,19 +27,19 @@
                         <h4>Полезные ссылки</h4>
                         <ul class="footer-links">
                             <li>
-                                <a href="shop.html" target="_self" title="link">Все категории</a>
+                                <a href="{% url 'shop' %}" target="_self" title="link">Все категории</a>
                             </li>
                             <li>
-                                <a href="menu.html" target="_self" title="link">Меню</a>
+                                <a href="{% url 'menu' %}" target="_self" title="link">Меню</a>
                             </li>
                             <li>
-                                <a href="contact.html" target="_self" title="link">Мой счет</a>
+                                <a href="{% url 'contacts' %}" target="_self" title="link">Мой счет</a>
                             </li>
                             <li>
-                                <a href="contact.html" target="_self" title="link">конфиденциальности</a>
+                                <a href="{% url 'contacts' %}" target="_self" title="link">конфиденциальности</a>
                             </li>
                             <li>
-                                <a href="about.html" target="_self" title="link">О нас</a>
+                                <a href="{% url 'about' %}" target="_self" title="link">О нас</a>
                             </li>
                         </ul>
                     </div>
@@ -60,8 +60,7 @@
                                     </a>
                                 </h6>
                                 <ul class="blog-list list-unstyled">
-                                    <li class="font-sm icon-start"><i class="far fa-user-alt"></i>Admin</li>
-                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>18-08-2023</li>
+                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{lastpost.created_at}}</li>
                                 </ul>
                             </div>
                         </article>
@@ -78,8 +77,8 @@
                                     </a>
                                 </h6>
                                 <ul class="blog-list list-unstyled">
-                                    <li class="font-sm icon-start"><i class="far fa-user-alt"></i>Admin</li>
-                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>18-08-2023</li>
+                                    
+                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{lastpost.created_at}}</li>
                                 </ul>
                             </div>
                         </article>
@@ -119,7 +118,7 @@
                 </div>
                 <div class="col-xl-5 col-md-6">
                     <div class="newsletter-form mb-15">
-                        <form id="newsletterForm">
+                        <form id="newsletterForm" >
                             <div class="form-group">
                                 <input class="form-control shadow-md rounded-pill" placeholder="Введите почту..." type="text" name="EMAIL" required="" autocomplete="off">
                                 <button class="btn btn-lg btn-primary rounded-pill" type="submit">

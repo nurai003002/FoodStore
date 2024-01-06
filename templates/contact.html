@@ -21,7 +21,7 @@
                 <h2 class="color-white">Контакты</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Контакты</li>
                     </ol>
                 </nav>
@@ -40,8 +40,7 @@
                             <i class="fal fa-phone-plus"></i>
                         </div>
                         <div class="card-text">
-                            <p><a href="tel:+990123456789">+990 123 456 789</a></p>
-                            <p><a href="tel:+990456123789">+990 456 123 789</a>
+                            <p><a href="tel:+990123456789">{{lastpost.contacts|safe}}</a></p>
                         </div>
                     </div>
                 </div>
@@ -51,8 +50,8 @@
                             <i class="fal fa-envelope"></i>
                         </div>
                         <div class="card-text">
-                            <p><a href="mailTo:live@example.com">live@example.com</a></p>
-                            <p><a href="mailTo:info@example.com">info@example.com</a>
+                            <p><a href="mailTo:live@example.com">{{lastpost.email}}</a></p>
+                            
                         </div>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
                             <i class="fal fa-map-marker-alt"></i>
                         </div>
                         <div class="card-text">
-                            <p>West Palm Beach, 4669, Travis Street, Canada</p>
+                            <p>{{lastpost.location}}</p>
                         </div>
                     </div>
                 </div>
@@ -79,7 +78,8 @@
                     </h2>
                 </div>
                 <div class="col-lg-6 mb-40" data-aos="fade-up">
-                    <form id="contactForm">
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-20">
@@ -115,7 +115,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Send Message">Отправить</button>
+                                <button name='contact_form' class="btn btn-lg btn-primary rounded-pill" aria-label="Send Message">Отправить</button>
                             </div>
                         </div>
                     </form>

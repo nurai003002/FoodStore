@@ -41,7 +41,8 @@
                                 Забронируйте столик
                             </h2>
                         </div>
-                        <form id="reservationForm">
+                        <form id="reservationForm" method="POST">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-20">
@@ -57,24 +58,12 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group mb-20">
-                                        <label for="person">Выберите людей<span class="color-red">*</span> </label>
-                                        <select class="niceselect form-control border-0 bg-white" id="person">
-                                            <option value="1">1 человек</option>
-                                            <option value="2">2 человек</option>
-                                            <option value="3">3 человек</option>
-                                            <option value="4">4 человек</option>
-                                            <option value="5">5 человек</option>
-                                            <option value="6">6 человек</option>
-                                        </select>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="col-md-6">
                                     <div class="form-group mb-20">
                                         <label for="phone">Номер<span class="color-red">*</span> </label>
-                                        <input type="number" name="phone" class="form-control border-0 bg-white" id="phone" required placeholder="Введите номер телефона">
+                                        <input type="phone" name="phone" class="form-control border-0 bg-white" id="phone" required placeholder="Введите номер телефона">
                                     </div>
                                 </div>
 
@@ -85,18 +74,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group mb-20">
-                                        <label for="time">Выберите время<span class="color-red">*</span> </label>
-                                        <select class="niceselect form-control border-0 bg-white" id="time">
-                                            <option value="1">08.00 AM to 09.00 AM</option>
-                                            <option value="2">10.00 AM to 11.00 AM</option>
-                                            <option value="3">12.00 PM to 01.00 PM</option>
-                                            <option value="4">02.00 PM to 03.00 PM</option>
-                                            <option value="5">04.00 PM to 05.00 PM</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="col-12">
                                     <div class="form-group mb-20">
@@ -105,7 +83,7 @@
                                 </div>
 
                                 <div class="col-md-12 text-center">
-                                    <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Make a Reservation">Забронировать</button>
+                                    <button name='bron_form' class="btn btn-lg btn-primary rounded-pill" aria-label="Make a Reservation">Забронировать</button>
                                 </div>
                             </div>
                         </form>

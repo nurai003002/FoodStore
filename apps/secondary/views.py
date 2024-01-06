@@ -1,21 +1,25 @@
 from django.shortcuts import render
 from apps.base.models import Settings
 from apps.secondary import models
+from apps.telegram_bot.views import get_text
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from apps.contacts.models import Bron
 # Create your views here.
 def about(request):
     settings = Settings.objects.latest('id')
     slide = models.Slide.objects.latest('id')
     achievement = models.Achievement.objects.latest('id')
     bakery = models.Bakery.objects.all()
-    menu = models.Menu.objects.all()
-    categories = models.Category.objects.all()
     discount = models.Discount.objects.all()
     clients = models.Clients.objects.latest('id')
     post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-
+    menu = models.Menu.objects.all()
+    categories = models.Category.objects.all()
+    big_category = models.BigCategory.objects.all()
     return render(request, 'about.html', locals())
 
 def menu(request):
@@ -24,8 +28,9 @@ def menu(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-    menu2 = models.Menu.objects.all()
-    categories2 = models.Category.objects.all()
+    big_categories = models.BigCategory.objects.all()
+    categories = models.Category.objects.all()
+    menu_items = models.Menu.objects.all()
     return render(request, 'menu.html', locals())
 
 
@@ -35,6 +40,18 @@ def shop(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
+
+    food = models.ShopFood.objects.all()
+
+    paginator = Paginator(food, 8)
+    page = request.GET.get('page')
+
+    try:
+        food = paginator.page(page)
+    except PageNotAnInteger:
+        food = paginator.page(1)
+    except EmptyPage:
+        food = paginator.page(paginator.num_pages)
     return render(request, 'shop.html', locals())
 
 
@@ -51,6 +68,28 @@ def reservation(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
+
+    if request.method=="POST":
+        if 'bron_form' in request.POST:
+            fullname = request.POST.get('fullname')
+            email = request.POST.get('email')
+            phone = request.POST.get('phone')
+            message = request.POST.get('message')
+            date = request.POST.get('date')
+            page_contact = Bron.objects.create(fullname=fullname, email=email, phone=phone,message=message,date=date)
+            if page_contact:
+                get_text(f"""
+                Оставлена заявка на Брон 🔐 
+                         
+Имя пользователя:  {fullname}
+Почта: {email}
+Номер телефона: {phone}
+Дата: {date}
+Сообщение: {message}
+
+""")
+
+
     return render(request, 'reservation.html', locals())
 
 def cart(request):
@@ -67,3 +106,14 @@ def cart(request):
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
     return render(request, 'cart.html', locals())
+
+
+def details(request):   
+    settings = Settings.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id')
+    food = models.ShopFood.objects.all()
+
+    return render(request, 'shop-details.html', locals())

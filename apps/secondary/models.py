@@ -119,8 +119,22 @@ class Bakery(models.Model):
         verbose_name = "Кондитерские изделия"
         verbose_name_plural = "Кондитерские изделия"
 
+class BigCategory(models.Model):
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Название категории"
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "1) Главная категория"
+        verbose_name_plural = "1) Главная категория"
+
 
 class Category(models.Model):
+    bi_category = models.ForeignKey(BigCategory,on_delete = models.CASCADE,verbose_name  = "Выбрать главную категорию")
     name = models.CharField(
         max_length=255, 
         verbose_name='Название категории'
@@ -130,8 +144,8 @@ class Category(models.Model):
         return self.name
     
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = '2) Дочерная категория'
+        verbose_name_plural = '2) Дочерная категория'
 
 class Menu(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
@@ -159,8 +173,8 @@ class Menu(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Меню'
-        verbose_name_plural = 'Меню'
+        verbose_name = '3) Меню'
+        verbose_name_plural = '3) Меню'
 
 class Discount(models.Model):
     image = ResizedImageField(
@@ -337,21 +351,8 @@ class SlideAbout(models.Model):
         verbose_name = 'Главное фото О нас'
         verbose_name_plural = 'Главное фото О нас'
 
-class Category2(models.Model):
-    name = models.CharField(
-        max_length=255, 
-        verbose_name='Название категории'
-    )
 
-    def __str__(self):
-        return self.name
-    
-    class Meta:
-        verbose_name = 'Категория2'
-        verbose_name_plural = 'Категории2'
-
-class Menu2(models.Model):
-    category = models.ForeignKey(Category2, on_delete=models.CASCADE, verbose_name='Категория')
+class ShopFood(models.Model):
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
@@ -363,9 +364,6 @@ class Menu2(models.Model):
         max_length=255, 
         verbose_name='Название изделия'
     )
-    descriptions = models.TextField(
-        verbose_name = "Описание"
-    )
     price_now = models.CharField(
         max_length=255, 
         verbose_name='Цена сейчас'
@@ -374,10 +372,13 @@ class Menu2(models.Model):
         max_length=255, 
         verbose_name='Цена раньше'
     )
-
+    descriptions = models.TextField(
+        verbose_name = 'Описание'
+    )
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Меню2'
-        verbose_name_plural = 'Меню2'
+        verbose_name = 'Еда в магазине'
+        verbose_name_plural = 'Еда в магазине'
+
