@@ -117,10 +117,7 @@
                         <li class="nav-item active">
                             <button class="nav-link hover-effect active btn-lg radius-sm" data-bs-toggle="tab" data-bs-target="#tab1" type="button">Описание</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link hover-effect btn-lg radius-sm" data-bs-toggle="tab" data-bs-target="#tab2" type="button">
-                                Отзывы</button>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="tab-content">
@@ -128,73 +125,12 @@
                         <!-- Product description -->
                         <div class="product-desc">
                             <p>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                               {{food_detail.descriptions}}
                             </p>
-                            <p>
-                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat.
-                            </p>
+                            
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab2">
-                        <div class="author">
-                            <div class="image">
-                                <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-1.jpg' %}" alt="Person Image">
-                            </div>
-                            <div class="author-info">
-                                <h6 class="mb-2 lh-1">By Jonathan Doe</h6>
-                                <div class="ratings mb-2">
-                                    <div class="rate">
-                                        <div class="rating-icon"></div>
-                                    </div>
-                                    <span class="ratings-total">(4.5)</span>
-                                </div>
-                                <p class="text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="shop-review-form mt-30">
-                            <form>
-                                <div class="form-group mb-20">
-                                    <label>Отзыв *</label>
-                                    <textarea class="form-control" placeholder="Отзыв" name="comment"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Рейтинг *</label>
-                                    <ul class="rating list-unstyled mb-20">
-                                        <li>
-                                            <span class="fas fa-star"></span>
-                                        </li>
-                                        <li>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                        </li>
-                                        <li>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                        </li>
-                                        <li>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                        </li>
-                                        <li>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-lg btn-primary" type="button" aria-label="Submit">Отправить</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

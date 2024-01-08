@@ -376,7 +376,6 @@
                             <div>
                                 <h2 class="title">Наши публикации</h2>
                             </div>
-                            <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Read Now">Подробнее</button>
                         </div>
                     </div>
                 </div>
@@ -392,18 +391,14 @@
                                 </div>
                                 <div class="card-content radius-md p-25">
                                     <ul class="card-list list-unstyled mb-15">
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-user"></i>By Admin</a>
-                                        </li>
+                                        
                                         <li class="font-sm icon-start">
                                             <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{post.created_at}}</a>
                                         </li>
-                                        <li class="font-sm icon-start">
-                                            <a href="blogs.html" target="_self" title="Link"><i class="fal fa-tag"></i>Пицца</a>
-                                        </li>
+                                        
                                     </ul>
                                     <h4 class="card-title lc-2 mb-15">
-                                        <a href="blog-details.html" target="_self" title="Link">
+                                        <a href="{% url 'blog_details' post.id %}" target="_self" title="Link">
                                             {{post.descriptions}}
                                         </a>
                                     </h4>
@@ -417,6 +412,7 @@
             </div>
         </div>
     </section>
+    <!-- Блок надо подключить  -->
     <!-- Blog-area end -->
 
     <!-- Gallery-area start -->

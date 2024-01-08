@@ -357,30 +357,21 @@ class News(models.Model):
     mini_descriprions = RichTextField(
         verbose_name = 'Описание2'
     )
-    image_news1 = ResizedImageField(
+    image1 = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
         upload_to='image_news1/',
         verbose_name="Фотография",
         blank=True, null=True
     )
-    image_news2 = ResizedImageField(
+    image2 = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
         upload_to='image_news2/',
         verbose_name="Фотография",
         blank=True, null=True
     )
-    name = models.CharField(
-        max_length = 255,
-        verbose_name = 'Имя'
-    )
-    email = models.EmailField(
-        verbose_name = "Почта"
-    )
-    comment = models.TextField(
-        verbose_name = 'Комментарий'
-    )
+    comments = models.ManyToManyField('Review', related_name='news_comments', blank=True)
 
 
     def __str__(self):
@@ -390,6 +381,24 @@ class News(models.Model):
         verbose_name = 'Последние Новости'
         verbose_name_plural = 'Последние Новости'
 
+class Review(models.Model):
+    name = models.CharField(
+        max_length = 255,
+        verbose_name = 'Имя' 
+    ) 
+    email = models.EmailField(
+        verbose_name = 'Почта'
+    )
+    comment = models.TextField(
+        verbose_name = 'Комментарий'
+    )
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
 
 class ShopFood(models.Model):
     image = ResizedImageField(

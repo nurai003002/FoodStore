@@ -21,7 +21,7 @@
                 <h2 class="color-white">Избранные</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Избранные</li>
                     </ol>
                 </nav>
@@ -47,18 +47,18 @@
                                         <th scope="col" class="last">Удалить</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody> 
                                     <tr class="item">
                                         <td class="product-img">
                                             <div class="image">
-                                                <a href="{% url 'details' %}" class="lazy-container radius-md ratio ratio-1-1">
+                                                <a href="#" class="lazy-container radius-md ratio ratio-1-1">
                                                     <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="Product">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-desc">
                                             <h6>
-                                                <a class="product-title mb-10" href="shop-details.html">Masala Chicken</a>
+                                                <a class="product-title mb-10" href="#">Masala Chicken</a>
                                             </h6>
                                             <div class="ratings">
                                                 <div class="rate">
@@ -74,82 +74,15 @@
                                             <span class="badge bg-success">In Stock</span>
                                         </td>
                                         <td>
-                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
+                                            <a href="{% url 'cart' %}" class="btn btn-sm btn-primary radius-sm">В корзину</a>
                                         </td>
                                         <td class="text-end">
-                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
+                                            <a href="#" class="btn btn-remove rounded-pill mx-auto">
                                                 <i class="fal fa-trash-alt"></i>
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr class="item">
-                                        <td class="product-img">
-                                            <div class="image">
-                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-2.jpg' %}" alt="Product">
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td class="product-desc">
-                                            <h6>
-                                                <a class="product-title mb-10" href="shop-details.html">Grilled Chicken</a>
-                                            </h6>
-                                            <div class="ratings">
-                                                <div class="rate">
-                                                    <div class="rating-icon"></div>
-                                                </div>
-                                                <span class="ratings-total">(4.7)</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">$13.00</h6>
-                                        </td>
-                                        <td class="product-availability">
-                                            <span class="badge bg-success">In Stock</span>
-                                        </td>
-                                        <td>
-                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
-                                                <i class="fal fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="item">
-                                        <td class="product-img">
-                                            <div class="image">
-                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-3.jpg' %}" alt="Product">
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td class="product-desc">
-                                            <h6>
-                                                <a class="product-title mb-10" href="shop-details.html">Chicken Pasta</a>
-                                            </h6>
-                                            <div class="ratings">
-                                                <div class="rate">
-                                                    <div class="rating-icon"></div>
-                                                </div>
-                                                <span class="ratings-total">(4.8)</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">$11.00</h6>
-                                        </td>
-                                        <td class="product-availability">
-                                            <span class="badge bg-warning">In Stock</span>
-                                        </td>
-                                        <td>
-                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
-                                        </td>
-                                        <td class="text-end">
-                                            <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
-                                                <i class="fal fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                   <!-- Сделать чтобы оно добавлялось в избранные -->
                                 </tbody>
                             </table>
                         </div>

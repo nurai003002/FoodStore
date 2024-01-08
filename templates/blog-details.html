@@ -75,12 +75,12 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="lazy-container ratio ratio-2-3 mb-20 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image_news1.url}}" alt="Blog Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image1.url}}" alt="Blog Image">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="lazy-container ratio ratio-2-3 mb-20 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image_news2.url}}" alt="Blog Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image2.url}}" alt="Blog Image">
                                         </div>
                                     </div>
                                 </div>
@@ -91,28 +91,27 @@
 
                     <!-- Comments area -->
                     <div class="comments">
-                        <h3 class="mb-20">03 Комментарий</h3>
+                        <h3 class="mb-20"> Комментарий</h3>
                         <div class="comment-box mb-50 radius-md">
+                            {% for comments in news_blog.comments.all %}
                             <ol class="comment-list">
                                 
                                 <li class="comment">
                                     <div class="comment-body">
                                         <div class="comment-author">
                                             <div class="lazy-container ratio ratio-1-1 rounded-circle">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/avatar-1.jpg' %}" alt="image">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.instagram.url}}" alt="image">
                                             </div>
                                         </div>
                                         <div class="comment-content">
-                                            <h6 class="name">{{news.name}}</h6>
+                                            <h6 class="name">{{ comments.name }}</h6>
                                             <p>
-                                                {{news.comment}}
+                                                {{ comments.comment }}
                                             </p>
                                         </div>
                                     </div>
                                 </li>
-                                
                                 <li class="comment">
-                                    
                                     <ol class="children">
                                         <li class="comment">
                                             
@@ -120,15 +119,17 @@
                                     </ol>
                                 </li>
                             </ol>
+                            {% endfor %}
                         </div>
                         <div class="comment-reply mb-50">
-                            <h3 class="mb-10">Опубликовать  комментарий</h3>
+                            <h3 class="mb-10">Опубликовать комментарий</h3>
                             <p class="comment-notes">
-                                <span id="email-notes">Ваш электронный адрес не будет опубликован. </span>
-                                Необходимые поля отмечены *
+                                <span id="email-notes">Ваш электронный адрес не будет опубликован.</span>
+                                Необходимые поля отмечены 
                                 <span class="required text-danger">*</span>
                             </p>
-                            <form id="commentForm" class="comment-form">
+                            <form method="POST" action="{% url 'blog_details' id=news_blog.id %}" class="comment-form">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group mb-20">
@@ -142,15 +143,16 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group mb-30">
-                                            <textarea name="message" class="form-control" placeholder="Комментарий" required rows="6"></textarea>
+                                            <textarea name="comment" class="form-control" placeholder="Комментарий" required rows="6"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-lg btn-primary rounded-pill" type="button" aria-label="Post Comment">Опубликовать</button>
+                                <button type="submit" class="btn btn-lg btn-primary rounded-pill" aria-label="Post Comment">Опубликовать</button>
                             </form>
                         </div>
                     </div>
-                </div>
+                    
+                </div>  
                 <div class="col-lg-4">
                     <aside class="widget-area pb-10">
                         <!-- Widget search -->
@@ -206,100 +208,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Widget categories -->
-                        <div class="widget widget-categories mb-40">
-                            <div class="p-25 radius-md border">
-                                <h4 class="title">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#blogCategory">
-                                        Categories
-                                    </button>
-                                </h4>
-                                <div id="blogCategory" class="collapse show">
-                                    <div class="accordion-body mt-20 scroll-y">
-                                        <ul class="list-unstyled m-0">
-                                            <li>
-                                                <a href="blogs.html" target="_self" title="Blogs" class="border p-20 radius-sm">
-                                                    <span>Food</span>
-                                                    <span class="qty">258</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blogs.html" target="_self" title="Blogs" class="border p-20 radius-sm">
-                                                    <span>Drinks</span>
-                                                    <span class="qty">562</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blogs.html" target="_self" title="Blogs" class="border p-20 radius-sm">
-                                                    <span>Pizza</span>
-                                                    <span class="qty">125</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blogs.html" target="_self" title="Blogs" class="border p-20 radius-sm">
-                                                    <span>Beverage</span>
-                                                    <span class="qty">68</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blogs.html" target="_self" title="Blogs" class="border p-20 radius-sm">
-                                                    <span>Health</span>
-                                                    <span class="qty">322</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Widget newsletter -->
-                        <div class="widget widget-newsletter mb-40">
-                            <div class="p-25 radius-md border">
-                                <h4 class="title mb-10">
-                                    Subscribe Newsletter
-                                </h4>
-                                <p class="text">
-                                    Subscribe to our newsletter to get update and weakly discount from Treats.
-                                </p>
-                                <div class="newsletter-form mt-20 mb-1">
-                                    <form id="subscriptionForm">
-                                        <div class="input-inline rounded-pill border">
-                                            <input class="form-control border-0 rounded-pill" placeholder="Enter email..." type="text" name="SEARCH" required="">
-                                            <button class="btn-icon rounded-circle" type="submit" aria-label="Subscribe button">
-                                                <i class="fas fa-paper-plane"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Widget tags -->
-                        <div class="widget widget-tags mb-40">
-                            <div class="p-25 radius-md border">
-                                <h4 class="title">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#blogTags">
-                                        Relates Tags
-                                    </button>
-                                </h4>
-                                <div id="blogTags" class="collapse show">
-                                    <div class="accordion-body mt-20 scroll-y">
-                                        <div class="tags-group d-flex flex-wrap gap-2">
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Food</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Health</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Pizza</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Drinks</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Juice</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Coffee</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Milk</a>
-                                            <a href="blogs.html" class="px-3 py-2 border radius-sm font-sm" title="Link" target="_self">Chicken</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </aside>
                 </div>
             </div>

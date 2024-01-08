@@ -63,6 +63,13 @@ class NewsFilterAdmin(admin.ModelAdmin):
     list_display = ('title', )
     search_fields = ('title', )
 
+
+class ReviewFilterAdmin(admin.ModelAdmin):
+    list_filter = ('name', )
+    list_display = ('name', )
+    search_fields = ('name', )
+
+admin.site.register(models.Review, ReviewFilterAdmin)
 admin.site.register(models.News, NewsFilterAdmin)
 admin.site.register(models.ShopFood)
 admin.site.register(models.BigCategory, BigCategoryFilterAdmin)

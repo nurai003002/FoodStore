@@ -111,6 +111,8 @@ def cart(request):
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
     news = models.News.objects.all()
+    
+
     return render(request, 'cart.html', locals())
 
 
@@ -128,6 +130,7 @@ def details(request, id):
 
 
 def blog_details(request, id):   
+    menu = models.Menu.objects.all()
     settings = Settings.objects.latest('id')
     post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
@@ -136,6 +139,16 @@ def blog_details(request, id):
     food = models.ShopFood.objects.all()
     news_blog = models.News.objects.get(id=id)
     news = models.News.objects.all()
+    # comment = models.Review.objects.all()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        user_comment = request.POST.get('comment')
+
+        new_comment = models.Review(name=name, email=email, comment=user_comment)
+        new_comment.save()
+
+        news_blog.comments.add(new_comment)
 
     return render(request, 'blog-details.html', locals())
 
