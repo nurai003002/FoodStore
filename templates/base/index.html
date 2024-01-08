@@ -25,7 +25,7 @@
                             <p class="text" data-aos="fade-up" data-aos-delay="100">{{slide.descriptions}}
                             </p>
                             <div class="d-flex align-items-center gap-25 flex-wrap mt-40" data-aos="fade-up" data-aos-delay="200">
-                                <a href="menu.html" class="btn btn-lg btn-primary rounded-pill" title="Discover Item" target="_self">Подробнее</a>
+                                <a href="{% url 'menu' %}" class="btn btn-lg btn-primary rounded-pill" title="Discover Item" target="_self">Подробнее</a>
                                 <div class="author d-flex align-items-center gap-15">
                                     <div class="author-img">
                                         <div class="lazy-container rounded-pill ratio ratio-1-1">
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="content">
                                         <h6 class="name mb-0 font-sm">
-                                            <a href="contact.html" target="_self" title="Link">{{slide.name}}</a>
+                                            <a href="{% url 'contacts' %}" target="_self" title="Link">{{slide.name}}</a>
                                         </h6>
                                         <span class="designation font-xsm">Генеральный Директор</span>
                                     </div>
@@ -152,11 +152,11 @@
                             <div class="swiper-slide">
                                 <div class="card text-center p-40 rounded-circle">
                                     <div class="card-image mb-10 mx-auto">
-                                        <a href="shop.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                            <img class="lazyload" src="{{bakery.image.url}}" data-src="{{bakery.image.url}}     " alt="Image">
+                                        <a href="{% url 'shop' %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{{bakery.image.url}}" data-src="{{bakery.image.url}} " alt="Image">
                                         </a>
                                     </div>
-                                    <h6 class="card-title lc-1 mb-0"><a href="shop.html" target="_self" title="Chocolate Cake">{{bakery.title}}</a></h6>
+                                    <h6 class="card-title lc-1 mb-0"><a href="{% url 'shop' %}" target="_self" title="Chocolate Cake">{{bakery.title}}</a></h6>
                                 </div>
                             </div>
                             {% endfor %}
@@ -193,21 +193,21 @@
                 </div>
                 <div class="col-12">
                     <div class="tab-content" data-aos="fade-up">
-                        <div class="tab-pane slide show active" id="tab0">
+                        <div class="tab-pane slide show " id="tab0">
                             <div class="row">
                                 {% for menu_item in menu %}
                                     <div class="col-sm-6 col-lg-4 col-xl-3">
                                         <div class="product text-center p-40 rounded-circle mb-25">
                                             <figure class="product-img mb-10 mx-auto">
-                                                <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <a href="{% url 'details'  menu_item.id  %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
                                                     <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ menu_item.image.url }}" alt="Image">
                                                 </a>
                                                 <div class="hover-show">
-                                                    <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
+                                                    <a href="{% url 'cart' %}" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
                                                 </div>
                                             </figure>
                                             <div class="product-details">
-                                                <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
+                                                <h5 class="product-title lc-1 mb-1"><a href="{% url 'details' menu_item.id %}" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
                                                 <div class="product-price">
                                                     <span class="h6 new-price color-primary">{{ menu_item.price_now }}</span>
                                                     <span class="prev-price font-sm">{{ menu_item.price_before }}</span>
@@ -226,15 +226,15 @@
                                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                                 <div class="product text-center p-40 rounded-circle mb-25">
                                                     <figure class="product-img mb-10 mx-auto">
-                                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                        <a href="{% url 'details' menu_item.id %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
                                                             <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ menu_item.image.url }}" alt="Image">
                                                         </a>
                                                         <div class="hover-show">
-                                                            <a href="cart.html" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
+                                                            <a href="{% url 'cart' %}" class="btn btn-md btn-primary rounded-pill" title="Add to Cart" target="_self">В корзину</a>
                                                         </div>
                                                     </figure>
                                                     <div class="product-details">
-                                                        <h5 class="product-title lc-1 mb-1"><a href="shop-details.html" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
+                                                        <h5 class="product-title lc-1 mb-1"><a href="{% url 'details' menu_item.id  %}" target="_self" title="Butter Bread">{{ menu_item.title }}</a></h5>
                                                         <div class="product-price">
                                                             <span class="h6 new-price color-primary">{{ menu_item.price_now }}</span>
                                                             <span class="prev-price font-sm">{{ menu_item.price_before }}</span>
@@ -249,7 +249,7 @@
                         {% endfor %}
                     </div>
                     <div class="cta-btn text-center mt-15 mb-25">
-                        <a href="shop.html" class="btn btn-lg btn-primary rounded-pill" title="More Items" target="_self">Подробнее</a>
+                        <a href="{% url 'shop' %}" class="btn btn-lg btn-primary rounded-pill" title="More Items" target="_self">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -277,18 +277,18 @@
                             <div class="product text-center p-30 radius-md mb-30">
                                 <div class="inner">
                                     <figure class="product-img mb-10 mx-auto">
-                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                        <a href="{% url 'details' discount.id  %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
                                             <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{discount.image.url}}" alt="Image">
                                         </a>
                                     </figure>
                                     <div class="product-details">
-                                        <h3 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fresh Bred & Danish">{{discount.title}}</a></h3>
+                                        <h3 class="product-title lc-1 mb-10"><a href="{% url 'details' discount.id %}" target="_self" title="Fresh Bred & Danish">{{discount.title}}</a></h3>
                                         <div class="product-price mb-15">
                                             <span class="h4 new-price">{{discount.price_now}}</span>
                                             <span class="prev-price">{{discount.price_before}}</span>
                                         </div>
                                         <p class="product-text mb-25">{{discount.descriptions}}</p>
-                                        <a href="cart.html" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Заказать</a>
+                                        <a href="{% url 'cart' %}" class="btn btn-lg btn-outline rounded-pill" title="Place Your Order" target="_self">Заказать</a>
                                     </div>
 
                                 </div>

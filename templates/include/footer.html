@@ -47,41 +47,24 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="footer-widget" data-aos="fade-up">
                         <h4>Недавний пост</h4>
+                        {% for news in news %}
                         <article class="article-item">
                             <div class="image">
-                                <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
-                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.image1.url}}" alt="Blog Image">
+                                <a href="{% url 'blog_details' news.id %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
+                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image.url}}" alt="Blog Image">
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="content">   
                                 <h6 class="lc-2 mb-10">
-                                    <a href="blog-details.html" target="_self" title="Blog">
-                                        {{lastpost.title1}}
+                                    <a href="{% url 'blog_details' news.id %}" target="_self" title="Blog">{{news.title}}
                                     </a>
                                 </h6>
                                 <ul class="blog-list list-unstyled">
-                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{lastpost.created_at}}</li>
+                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{news.created_at}}</li>
                                 </ul>
                             </div>
                         </article>
-                        <article class="article-item">
-                            <div class="image">
-                                <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
-                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{lastpost.image2.url}}" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h6 class="lc-2 mb-10">
-                                    <a href="blog-details.html" target="_self" title="Blog">
-                                        {{lastpost.title2}}
-                                    </a>
-                                </h6>
-                                <ul class="blog-list list-unstyled">
-                                    
-                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{lastpost.created_at}}</li>
-                                </ul>
-                            </div>
-                        </article>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
@@ -136,7 +119,7 @@
         <div class="copy-right-area ptb-30">
             <div class="copy-right-content">
                 <span>
-                    Copyright <i class="fal fa-copyright"></i><span id="footerDate"></span> <a href="index.html" target="_self" title="Treats" class="color-primary">Treats</a>. All Rights Reserved Nurai
+                    Copyright <i class="fal fa-copyright"></i><span id="footerDate"></span> <a href="{% url 'index' %}" target="_self" title="Treats" class="color-primary">Treats</a>. All Rights Reserved Nurai
                 </span>
             </div>
         </div>

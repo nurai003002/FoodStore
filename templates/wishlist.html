@@ -14,15 +14,15 @@
     <!-- Header-area end -->
 
     <!-- Breadcrumb start -->
-    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{{slide.backimage.url}}">
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{{slideabout.image.url}}">
         <div class="overlay 65"></div>
         <div class="container">
             <div class="content text-center">
-                <h2 class="color-white">Корзина</h2>
+                <h2 class="color-white">Избранные</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Корзина</li>
+                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Избранные</li>
                     </ol>
                 </nav>
             </div>
@@ -50,8 +50,8 @@
                                 <tbody>
                                     <tr class="item">
                                         <td class="product-img">
-                                            <div class="image">     
-                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
+                                            <div class="image">
+                                                <a href="{% url 'details' %}" class="lazy-container radius-md ratio ratio-1-1">
                                                     <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="Product">
                                                 </a>
                                             </div>
@@ -67,22 +67,14 @@
                                                 <span class="ratings-total">(4.5)</span>
                                             </div>
                                         </td>
-                                        <td class="qty">
-                                            <div class="quantity-input">
-                                                <div class="qty-btn quantity-down">
-                                                    <i class="fal fa-minus"></i>
-                                                </div>
-                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
-                                                <div class="qty-btn quantity-up">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </div>
+                                        <td>
+                                            <h6 class="mb-0">$14.00</h6>
                                         </td>
                                         <td class="product-availability">
                                             <span class="badge bg-success">In Stock</span>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">$14.00</h6>
+                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
                                         </td>
                                         <td class="text-end">
                                             <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
@@ -109,22 +101,14 @@
                                                 <span class="ratings-total">(4.7)</span>
                                             </div>
                                         </td>
-                                        <td class="qty">
-                                            <div class="quantity-input">
-                                                <div class="qty-btn quantity-down">
-                                                    <i class="fal fa-minus"></i>
-                                                </div>
-                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
-                                                <div class="qty-btn quantity-up">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </div>
+                                        <td>
+                                            <h6 class="mb-0">$13.00</h6>
                                         </td>
                                         <td class="product-availability">
                                             <span class="badge bg-success">In Stock</span>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">$13.00</h6>
+                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
                                         </td>
                                         <td class="text-end">
                                             <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
@@ -151,22 +135,14 @@
                                                 <span class="ratings-total">(4.8)</span>
                                             </div>
                                         </td>
-                                        <td class="qty">
-                                            <div class="quantity-input">
-                                                <div class="qty-btn quantity-down">
-                                                    <i class="fal fa-minus"></i>
-                                                </div>
-                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
-                                                <div class="qty-btn quantity-up">
-                                                    <i class="fal fa-plus"></i>
-                                                </div>
-                                            </div>
+                                        <td>
+                                            <h6 class="mb-0">$11.00</h6>
                                         </td>
                                         <td class="product-availability">
                                             <span class="badge bg-warning">In Stock</span>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">$11.00</h6>
+                                            <a href="cart.html" class="btn btn-sm btn-primary radius-sm">Add to Cart</a>
                                         </td>
                                         <td class="text-end">
                                             <a href="cart.html" class="btn btn-remove rounded-pill mx-auto">
@@ -176,10 +152,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="btn-groups mt-30">
-                            <a href="checkout.html" class="btn btn-md btn-primary" title="Checkout" target="_self">Checkout</a>
-                            <a href="{% url 'cart' %}" class="btn btn-md btn-primary" title="Update Cart" target="_self">Обновить корзину</a>
                         </div>
                     </form>
                 </div>
@@ -211,12 +183,10 @@
     <!-- Gallery-area end -->
 
     <!-- Footer-area start -->
-    {% include "include/footer.html" %}
+    {% include 'include/footer.html' %}
     <!-- Footer-area end-->
 
     <!-- Go to Top -->
     <div class="go-top"><i class="fal fa-angle-up"></i></div>
     <!-- Go to Top -->
-
-    <!-- Jquery JS -->
 {% endblock %}

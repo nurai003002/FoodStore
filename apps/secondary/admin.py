@@ -58,7 +58,12 @@ class BigCategoryFilterAdmin(admin.ModelAdmin):
     list_display = ('title', )
     search_fields = ('title', )
 
+class NewsFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', )
+    search_fields = ('title', )
 
+admin.site.register(models.News, NewsFilterAdmin)
 admin.site.register(models.ShopFood)
 admin.site.register(models.BigCategory, BigCategoryFilterAdmin)
 admin.site.register(models.SlideAbout)

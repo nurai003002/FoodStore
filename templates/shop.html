@@ -50,26 +50,26 @@
                         <!-- Ваши существующие блоки продуктов -->
                         <div class="product radius-md text-center p-30 mb-25">
                             <figure class="product-img mb-20 mx-auto">
-                                <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                <a href="{% url 'details' food.id  %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
                                     <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{food.image.url}}" alt="Image">
                                 </a>
                                 <div class="hover-show">
                                     <div class="btn-groups">
-                                        <a href="shop-details.html" class="btn-icon rounded-circle" title="Quick View" target="_self">
+                                        <a href="{% url 'details' food.id %}" class="btn-icon rounded-circle" title="Quick View" target="_self">
                                             <i class="fal fa-eye"></i>
                                         </a>
-                                        <a href="cart.html" class="btn-icon rounded-circle" title="Add to Cart" target="_self">
+                                        <a href="{% url 'cart' %}" class="btn-icon rounded-circle" title="Add to Cart" target="_self">
                                             <i class="fal fa-shopping-cart"></i>
                                         </a>
-                                        <a href="wishlist.html" class="btn-icon rounded-circle" title="Add to Wishlist" target="_self">
+                                        <a href="{% url 'wishlist'%}" class="btn-icon rounded-circle" title="Add to Wishlist" target="_self">
                                             <i class="fal fa-heart"></i>
                                         </a>
                                     </div>
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">{{food.title}}</a></h4>
-                                <div class="product-price">
+                                <h4 class="product-title lc-1 mb-10"><a href="{% url 'details' food.id %}" target="_self" title="Vanilla Cold Coffee">{{food.title}}</a></h4>
+                                <div class="product-price"> 
                                     <span class="h6 font-lg new-price color-primary">{{food.price_now}}</span>
                                     <span class="prev-price font-sm">{{food.price_before}}</span>
                                 </div>

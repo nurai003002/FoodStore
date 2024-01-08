@@ -134,7 +134,7 @@ class BigCategory(models.Model):
 
 
 class Category(models.Model):
-    bi_category = models.ForeignKey(BigCategory,on_delete = models.CASCADE,verbose_name  = "Выбрать главную категорию")
+    big_category = models.ForeignKey(BigCategory,on_delete = models.CASCADE,verbose_name  = "Выбрать главную категорию")
     name = models.CharField(
         max_length=255, 
         verbose_name='Название категории'
@@ -163,12 +163,14 @@ class Menu(models.Model):
     price_now = models.CharField(
         max_length=255, 
         verbose_name='Цена сейчас'
-)
+    )
     price_before = models.CharField(
         max_length=255, 
         verbose_name='Цена раньше'
     )
-
+    descriptions = models.TextField(
+        verbose_name = 'Описание'
+    )
     def __str__(self):
         return self.title
 
@@ -290,35 +292,9 @@ class LastPost(models.Model):
     descriptions = models.TextField(
         verbose_name = 'Описание'
     )
-    image1 = ResizedImageField(
-        force_format="WEBP", 
-        quality=100, 
-        upload_to='imagelast/',
-        verbose_name="Фотография1",
-        blank=True, null=True
-    )
-    image2 = ResizedImageField(
-        force_format="WEBP", 
-        quality=100, 
-        upload_to='imagelast/',
-        verbose_name="Фотография2",
-        blank=True, null=True
-    )
     instagram = models.ImageField(
         upload_to='instagram_image/',
         verbose_name = 'instagram URL'
-    )
-    title1 = models.CharField(
-        max_length = 255,
-        verbose_name = "Заголовок"
-    )
-    title2 = models.CharField(
-        max_length = 255,
-        verbose_name = "Заголовок"
-    )
-    created_at = models.DateTimeField(
-        auto_now_add = True,
-        blank = True,null = True
     )
     location = models.CharField(
         max_length = 255,
@@ -332,7 +308,7 @@ class LastPost(models.Model):
     )
 
     def __str__(self):
-        return self.title1
+        return self.location
     
     class Meta:
         verbose_name = 'Надавний пост'
@@ -350,6 +326,69 @@ class SlideAbout(models.Model):
     class Meta:
         verbose_name = 'Главное фото О нас'
         verbose_name_plural = 'Главное фото О нас'
+
+
+class News(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='imagelast/',
+        verbose_name="Фотография",
+        blank=True, null=True
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Заголовок"
+    )
+    created_at = models.DateTimeField(
+        auto_now_add = True,
+        blank = True,null = True
+    )
+    descriprions = RichTextField(
+        verbose_name = 'Описание'
+    )
+    letter = models.TextField(
+        verbose_name = 'Комментарий'
+    )
+    mini_news = models.CharField(
+        max_length =255,
+        verbose_name = 'Доп новости'
+    )
+    mini_descriprions = RichTextField(
+        verbose_name = 'Описание2'
+    )
+    image_news1 = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='image_news1/',
+        verbose_name="Фотография",
+        blank=True, null=True
+    )
+    image_news2 = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='image_news2/',
+        verbose_name="Фотография",
+        blank=True, null=True
+    )
+    name = models.CharField(
+        max_length = 255,
+        verbose_name = 'Имя'
+    )
+    email = models.EmailField(
+        verbose_name = "Почта"
+    )
+    comment = models.TextField(
+        verbose_name = 'Комментарий'
+    )
+
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Последние Новости'
+        verbose_name_plural = 'Последние Новости'
 
 
 class ShopFood(models.Model):

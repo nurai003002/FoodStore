@@ -16,6 +16,7 @@ def index(request):
     post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
+    news = models.News.objects.all()
     return render(request, 'base/index.html', locals())
 
 
@@ -26,7 +27,8 @@ def contacts(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-
+    news = models.News.objects.all()
+    
 
     if request.method=="POST":
         if 'contact_form' in request.POST:

@@ -20,6 +20,8 @@ def about(request):
     menu = models.Menu.objects.all()
     categories = models.Category.objects.all()
     big_category = models.BigCategory.objects.all()
+    news = models.News.objects.all()
+    
     return render(request, 'about.html', locals())
 
 def menu(request):
@@ -30,7 +32,8 @@ def menu(request):
     slideabout = models.SlideAbout.objects.latest('id')
     big_categories = models.BigCategory.objects.all()
     categories = models.Category.objects.all()
-    menu_items = models.Menu.objects.all()
+    menu = models.Menu.objects.all()
+    news = models.News.objects.all()
     return render(request, 'menu.html', locals())
 
 
@@ -40,6 +43,7 @@ def shop(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
+    news = models.News.objects.all()
 
     food = models.ShopFood.objects.all()
 
@@ -68,6 +72,7 @@ def reservation(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
+    news = models.News.objects.all()
 
     if request.method=="POST":
         if 'bron_form' in request.POST:
@@ -105,10 +110,37 @@ def cart(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
+    news = models.News.objects.all()
     return render(request, 'cart.html', locals())
 
 
-def details(request):   
+def details(request, id):   
+    settings = Settings.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id')
+    
+    news = models.News.objects.all()
+    food_detail = models.ShopFood.objects.get(id=id)
+
+    return render(request, 'shop-details.html', locals())
+
+
+def blog_details(request, id):   
+    settings = Settings.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id')
+    food = models.ShopFood.objects.all()
+    news_blog = models.News.objects.get(id=id)
+    news = models.News.objects.all()
+
+    return render(request, 'blog-details.html', locals())
+
+
+def wishlist(request):
     settings = Settings.objects.latest('id')
     post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
@@ -116,4 +148,6 @@ def details(request):
     slideabout = models.SlideAbout.objects.latest('id')
     food = models.ShopFood.objects.all()
 
-    return render(request, 'shop-details.html', locals())
+    news = models.News.objects.all()
+
+    return render(request, 'wishlist.html', locals())

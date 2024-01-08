@@ -41,28 +41,7 @@
                                 <div class="swiper-slide">
                                     <figure class="lazy-container ratio ratio-1-1">
                                         <a href="{% static 'assets/images/shop/shop-1.jpg' %}" class="lightbox-single">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="product image">
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure class="lazy-container ratio ratio-1-1">
-                                        <a href="{% static 'assets/images/shop/shop-2.jpg' %}" class="lightbox-single">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-2.jpg' %}" alt="product image">
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure class="lazy-container ratio ratio-1-1">
-                                        <a href="{% static 'assets/images/shop/shop-3.jpg' %}" class="lightbox-single">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-3.jpg' %}" alt="product image">
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div class="swiper-slide">
-                                    <figure class="lazy-container ratio ratio-1-1">
-                                        <a href="{% static 'assets/images/shop/shop-4.jpg' %}" class="lightbox-single">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-4.jpg' %}" alt="product image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{food_detail.image.url }}" alt="product image">
                                         </a>
                                     </figure>
                                 </div>
@@ -82,22 +61,7 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="thumbnail-img lazy-container ratio ratio-1-1 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="product image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="thumbnail-img lazy-container ratio ratio-1-1 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-2.jpg' %}" alt="product image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="thumbnail-img lazy-container ratio ratio-1-1 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-3.jpg' %}" alt="product image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="thumbnail-img lazy-container ratio ratio-1-1 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-4.jpg' %}" alt="product image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{food_detail.image.url }}" alt="product image">
                                         </div>
                                     </div>
                                 </div>
@@ -113,14 +77,14 @@
                             </div>
                             <span class="ratings-total">(4,7 от 1 тыс. клиентов)</span>
                         </div>
-                        <h3 class="product-title mb-15">Masala Grilled Chicken</h3>
-                        <div class="product-price mb-30">
-                            <h4 class="new-price color-primary">$12.00</h4>
-                            <span class="prev-price h5 color-medium">$14.00</span>
+                        <h3 class="product-title mb-15">{{food_detail.title}}</h3>
+                        <div class="product-price"> 
+                            <span class="h6 font-lg new-price color-primary">{{food_detail.price_now}}</span>
+                            <span class="prev-price font-sm">{{food_detail.price_before}}</span>
                         </div>
                         <div class="product-desc">
                             <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit at fugiat quisquam vitae. Eos rerum similique officia, odio eveniet dolore laborum quasi voluptatibus! Commodi quibusdam, rem molestias alias explicabo aut.
+                               {{food_detail.descriptions}}
                             </p>
                         </div>
                         <div class="btn-groups mt-30">
@@ -131,7 +95,7 @@
                                 <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
                                 <div class="qty-btn quantity-up">
                                     <i class="fal fa-plus"></i>
-                                </div>
+                                </div> 
                             </div>
                             <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">В корзину</a>
                             <a href="checkout.html" class="btn btn-md btn-outline" title="Order Now" target="_self">
@@ -143,22 +107,7 @@
                             <a href="{{settings.twitter}}" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
                             <a href="{{settings.youtube}}" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a>
                         </div>
-                        <ul class="list-unstyled info-list mt-30 mb-0">
-                            <li>
-                                <span class="color-dark">SKU:</span>
-                                <span>35423DA</span>
-                            </li>
-                            <li>
-                                <span class="color-dark">Category:</span>
-                                <a href="shop.html">Grill Chicken</a>
-                            </li>
-                            <li>
-                                <span class="color-dark">Tag:</span>
-                                <a href="shop.html" target="_self" title="Link">Chicken</a>
-                                <a href="shop.html" target="_self" title="Link">Asian</a>
-                                <a href="shop.html" target="_self" title="Link">Rice</a>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>
