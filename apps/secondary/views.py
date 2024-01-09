@@ -165,3 +165,31 @@ def wishlist(request):
     news = models.News.objects.all()
 
     return render(request, 'wishlist.html', locals())
+
+
+def blogs(request):
+    news = models.News.objects.all()
+    settings = Settings.objects.latest('id')
+    post = models.Post.objects.all()
+    allfood = models.AllFood.objects.all()
+    lastpost = models.LastPost.objects.latest('id')
+    slideabout = models.SlideAbout.objects.latest('id')
+    food = models.ShopFood.objects.all()
+
+    all_posts = models.Post.objects.all()
+    posts_per_page = 3
+    
+    paginator = Paginator(all_posts, posts_per_page)
+    
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # Если номер страницы не является целым числом, поставим его на первую страницу
+        posts = paginator.page(1)
+    except EmptyPage:
+        # Если номер страницы больше максимального, поставим на последнюю страницу
+        posts = paginator.page(paginator.num_pages)
+    
+
+    return render(request, 'blogs.html', locals())
