@@ -381,26 +381,26 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        {% for post in post %}
+                        {% for news in news %}
                             {% if forloop.counter <= 3 %}
                                 <div class="col-xl-4 col-md-6" data-aos="fade-up">
                                     <article class="card mb-25 radius-md">
                                         <div class="card-img">
                                             <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{post.image.url}}" alt="Blog Image">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image.url}}" alt="Blog Image">
                                             </a>
                                         </div>
                                         <div class="card-content radius-md p-25">
                                             <ul class="card-list list-unstyled mb-15">
                                                 
                                                 <li class="font-sm icon-start">
-                                                    <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{post.created_at}}</a>
+                                                    <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{news.created_at}}</a>
                                                 </li>
                                                 
                                             </ul>
                                             <h4 class="card-title lc-2 mb-15">
-                                                <a href="{% url 'blog_details' post.id %}" target="_self" title="Link">
-                                                    {{post.descriptions}}
+                                                <a href="{% url 'blog_details' news.id %}" target="_self" title="Link">
+                                                    {{news.title}}
                                                 </a>
                                             </h4>
                                             <a href="{% url 'blogs' %}" class="btn-text color-primary" target="_self" title="Read More">Подробнее</a>

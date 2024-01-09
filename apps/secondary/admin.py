@@ -42,12 +42,6 @@ class ClientsFilterAdmin(admin.ModelAdmin):
     search_fields = ('descriptions1' ,)
     inlines = [ClientsAll]
 
-
-class PostFilterAdmin(admin.ModelAdmin):
-    list_filter = ('descriptions', )
-    list_display = ('descriptions', )
-    search_fields = ('descriptions', )
-
 class LastPostFilterAdmin(admin.ModelAdmin):
     list_filter = ('descriptions', )
     list_display = ('descriptions', )
@@ -69,14 +63,15 @@ class ReviewFilterAdmin(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ('name', )
 
+
+admin.site.register(models.Wishlist)
 admin.site.register(models.Review, ReviewFilterAdmin)
 admin.site.register(models.News, NewsFilterAdmin)
-admin.site.register(models.ShopFood)
+admin.site.register(models.Food)
 admin.site.register(models.BigCategory, BigCategoryFilterAdmin)
 admin.site.register(models.SlideAbout)
 admin.site.register(models.LastPost, LastPostFilterAdmin)
 admin.site.register(models.AllFood)
-admin.site.register(models.Post, PostFilterAdmin)
 admin.site.register(models.Clients, ClientsFilterAdmin)
 admin.site.register(models.Discount, DiscountFilterAdmin)
 admin.site.register(models.Menu, MenuFilterAdmin)

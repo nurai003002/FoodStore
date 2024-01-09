@@ -34,26 +34,26 @@
     <div class="blog-area blog-1 pt-100 pb-75">
         <div class="container">
             <div class="row">
-                {% for post in posts %}
+                {% for news in news %}
                 <div class="col-xl-4 col-md-6" data-aos="fade-up">
                     <article class="card mb-25 radius-md">
                         <div class="card-img">
-                            <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{post.image.url}}" alt="Blog Image">
+                            <a href="{% url 'blog_details' news.id %}" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image.url}}" alt="Blog Image">
                             </a>
                         </div>
                         <div class="card-content radius-md p-25 border">
                             <ul class="card-list list-unstyled mb-15">
                                 <li class="font-sm icon-start">
-                                    <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{post.created_at}}</a>
+                                    <a href="{% url 'blog_details' news.id %}" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{news.created_at}}</a>
                                 </li>
                             </ul>
                             <h4 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
-                                    {{post.descriptions}}
+                                <a href="{% url 'blog_details' news.id %}" target="_self" title="Link">
+                                    {{news.title}}
                                 </a>
                             </h4>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Подробнее</a>
+                            <a href="{% url 'blog_details' news.id %}" class="btn-text color-primary" target="_self" title="Read More">Подробнее</a>
                         </div>
                     </article>
                 </div>
@@ -61,7 +61,7 @@
             </div>
             <nav class="pagination-nav mt-15 mb-25" data-aos="fade-up">
                 <ul class="pagination justify-content-center">
-                    {% if posts.has_previous %}
+                    {% if news.has_previous %}
                         <li class="page-item">
                             <a class="page-link" href="?page=1" aria-label="Previous">
                                 <i class="far fa-angle-left"></i>
@@ -69,13 +69,13 @@
                         </li>
                     {% endif %}
                     {% for i in paginator.page_range %}
-                        <li class="page-item {% if i == posts.number %}active{% endif %}">
+                        <li class="page-item {% if i == news.number %}active{% endif %}">
                             <a class="page-link" href="?page={{ i }}">{{ i }}</a>
                         </li>
                     {% endfor %}
-                    {% if posts.has_next %}
+                    {% if news.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                            <a class="page-link" href="?page={{ news.next_page_number }}" aria-label="Next">
                                 <i class="far fa-angle-right"></i>
                             </a>
                         </li>

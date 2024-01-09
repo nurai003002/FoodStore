@@ -54,40 +54,38 @@
                     </article>
 
                     <!-- Description area -->
-                    {% for news in news %}
                     <div class="blog-description pb-20">
                         <div class="content">
-                            <p>{{news.descriprions|safe}}
+                            <p>{{news_blog.descriprions|safe}}
                             </p>
                             <blockquote class="blockquote mb-30 p-25 bg-light">
                                 <i class="fas fa-quote-left"></i>
                                 <p>
-                                    {{news.letter}}
+                                    {{news_blog.letter}}
                                 </p>
                             </blockquote>
                             <h4 class="title">
-                                {{news.mini_news}}
+                                {{news_blog.mini_news}}
                             </h4>
                             <p>
-                               {{news.mini_descriprions|safe}}
+                               {{news_blog.mini_descriprions|safe}}
                             </p>
                             <div class="images pb-10">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="lazy-container ratio ratio-2-3 mb-20 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image1.url}}" alt="Blog Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news_blog.image1.url}}" alt="Blog Image">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="lazy-container ratio ratio-2-3 mb-20 radius-md">
-                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image2.url}}" alt="Blog Image">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news_blog.image2.url}}" alt="Blog Image">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
 
                     <!-- Comments area -->
                     <div class="comments">

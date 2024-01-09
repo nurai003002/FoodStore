@@ -13,7 +13,7 @@ def index(request):
     categories = models.Category.objects.all()
     discount = models.Discount.objects.all()
     clients = models.Clients.objects.latest('id')
-    post = models.Post.objects.all()
+
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     news = models.News.objects.all()
@@ -25,7 +25,6 @@ def index(request):
 def contacts(request):
     
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')

@@ -43,28 +43,29 @@
                                         <th scope="col" colspan="2" class="first">Продукты</th>
                                         <th scope="col">Количество</th>
                                         <th scope="col">Запас</th>
-                                        <th scope="col">Общий</th>
+                                        <th scope="col">Цена</th>
                                         <th scope="col" class="last">Удалить</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for cart_item in cart_items %}
                                     <tr class="item">
                                         <td class="product-img">
                                             <div class="image">     
-                                                <a href="shop-details.html" class="lazy-container radius-md ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="Product">
+                                                <a href="{% url 'details' cart_item.id %}" class="lazy-container radius-md ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ cart_item.image.url }}" alt="Product">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-desc">
                                             <h6>
-                                                <a class="product-title mb-10" href="shop-details.html">Masala Chicken</a>
+                                                <a class="product-title mb-10" href="{% url 'details' cart_item.id %}">{{ cart_item.title }}</a>
                                             </h6>
                                             <div class="ratings">
                                                 <div class="rate">
                                                     <div class="rating-icon"></div>
                                                 </div>
-                                                <span class="ratings-total">(4.5)</span>
+                                                <span class="ratings-total"></span>
                                             </div>
                                         </td>
                                         <td class="qty">
@@ -72,7 +73,7 @@
                                                 <div class="qty-btn quantity-down">
                                                     <i class="fal fa-minus"></i>
                                                 </div>
-                                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
+                                                <input type="text" value="{{ cart_item.quantity }}" name="quantity" spellcheck="false" data-ms-editor="true">
                                                 <div class="qty-btn quantity-up">
                                                     <i class="fal fa-plus"></i>
                                                 </div>
@@ -82,15 +83,15 @@
                                             <span class="badge bg-success">In Stock</span>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">$14.00</h6>
+                                            <h6 class="mb-0">{{ cart_item.price }}</h6>
                                         </td>
                                         <td class="text-end">
-                                            <a href="{% url 'cart' %}" class="btn btn-remove rounded-pill mx-auto">
+                                            <a href="{% url 'remove_from_cart' cart_item.id %}" class="btn btn-remove rounded-pill mx-auto">
                                                 <i class="fal fa-trash-alt"></i>
                                             </a>
-                                        </td>
+                                        </td>    
                                     </tr>
-                                    
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -120,7 +121,6 @@
                         </a>
                     </div>
                     {% endfor %}
-
                 </div>
             </div>
         </div>

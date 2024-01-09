@@ -43,48 +43,61 @@
                                         <th scope="col" colspan="2" class="first">Продукты</th>
                                         <th scope="col">Количество</th>
                                         <th scope="col">Запас</th>
-                                        <th scope="col">Общий</th>
+                                        <th scope="col">Цена</th>
                                         <th scope="col" class="last">Удалить</th>
                                     </tr>
                                 </thead>
-                                <tbody> 
+                                <tbody>
+                                    {% for wishlist_items in wishlist_items %}
                                     <tr class="item">
                                         <td class="product-img">
-                                            <div class="image">
-                                                <a href="#" class="lazy-container radius-md ratio ratio-1-1">
-                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shop/shop-1.jpg' %}" alt="Product">
+                                            <div class="image">     
+                                                <a href="{% url 'details' wishlist_items.id %}" class="lazy-container radius-md ratio ratio-1-1">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ wishlist_items.image.url }}" alt="Product">
                                                 </a>
                                             </div>
                                         </td>
                                         <td class="product-desc">
                                             <h6>
-                                                <a class="product-title mb-10" href="#">Masala Chicken</a>
+                                                <a class="product-title mb-10" href="{% url 'details' wishlist_items.id %}">{{ wishlist_items.title }}</a>
                                             </h6>
                                             <div class="ratings">
                                                 <div class="rate">
                                                     <div class="rating-icon"></div>
                                                 </div>
-                                                <span class="ratings-total">(4.5)</span>
+                                                <span class="ratings-total"></span>
                                             </div>
                                         </td>
-                                        <td>
-                                            <h6 class="mb-0">$14.00</h6>
+                                        <td class="qty">
+                                            <div class="quantity-input">
+                                                <div class="qty-btn quantity-down">
+                                                    <i class="fal fa-minus"></i>
+                                                </div>
+                                                <input type="text" value="{{ wishlist_items.quantity }}" name="quantity" spellcheck="false" data-ms-editor="true">
+                                                <div class="qty-btn quantity-up">
+                                                    <i class="fal fa-plus"></i>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td class="product-availability">
                                             <span class="badge bg-success">In Stock</span>
                                         </td>
                                         <td>
-                                            <a href="{% url 'cart' %}" class="btn btn-sm btn-primary radius-sm">В корзину</a>
+                                            <h6 class="mb-0">{{ wishlist_items.price }}</h6>
                                         </td>
                                         <td class="text-end">
-                                            <a href="#" class="btn btn-remove rounded-pill mx-auto">
+                                            <a href="{% url 'remove_from_cart' wishlist_items.id %}" class="btn btn-remove rounded-pill mx-auto">
                                                 <i class="fal fa-trash-alt"></i>
                                             </a>
-                                        </td>
+                                        </td>    
                                     </tr>
-                                   <!-- Сделать чтобы оно добавлялось в избранные -->
+                                    {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="btn-groups mt-30">
+                            
+                            <a href="{% url 'cart' %}" class="btn btn-md btn-primary" title="Update Cart" target="_self">Обновить корзину</a>
                         </div>
                     </form>
                 </div>

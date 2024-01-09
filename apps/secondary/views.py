@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from apps.base.models import Settings
 from apps.secondary import models
 from apps.telegram_bot.views import get_text
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from apps.contacts.models import Bron
+
 # Create your views here.
 def about(request):
     settings = Settings.objects.latest('id')
@@ -13,7 +13,6 @@ def about(request):
     bakery = models.Bakery.objects.all()
     discount = models.Discount.objects.all()
     clients = models.Clients.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
@@ -26,7 +25,6 @@ def about(request):
 
 def menu(request):
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
@@ -37,15 +35,19 @@ def menu(request):
     return render(request, 'menu.html', locals())
 
 
+def add_to_cart(request, food_id):
+    food = models.Food.objects.all()
+    food_item = get_object_or_404(models.Food, pk=food_id)
+    return redirect('cart')
+
 def shop(request):
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
     news = models.News.objects.all()
 
-    food = models.ShopFood.objects.all()
+    food = models.Food.objects.all()
 
     paginator = Paginator(food, 8)
     page = request.GET.get('page')
@@ -56,6 +58,7 @@ def shop(request):
         food = paginator.page(1)
     except EmptyPage:
         food = paginator.page(paginator.num_pages)
+    
     return render(request, 'shop.html', locals())
 
 
@@ -68,7 +71,6 @@ def reservation(request):
     categories = models.Category.objects.all()
     discount = models.Discount.objects.all()
     clients = models.Clients.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
@@ -106,25 +108,41 @@ def cart(request):
     categories = models.Category.objects.all()
     discount = models.Discount.objects.all()
     clients = models.Clients.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id') 
     news = models.News.objects.all()
     
-
+    cart_items = models.Cart.objects.all()
     return render(request, 'cart.html', locals())
 
 
+def add_to_cart(request, food_id):
+    food_item = get_object_or_404(models.Food, pk=food_id)
+
+    # Создание объекта Cart и сохранение его в базе данных
+    cart_item, created = models.Cart.objects.get_or_create(
+        title=food_item.title,
+        price=food_item.price_now,
+        image=food_item.image,
+    )
+
+
+    return redirect('cart')
+
+def remove_from_cart(request, cart_item_id):
+    cart_item = get_object_or_404(models.Cart, pk=cart_item_id)
+    cart_item.delete()
+    return redirect('cart')
+
 def details(request, id):   
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
     
     news = models.News.objects.all()
-    food_detail = models.ShopFood.objects.get(id=id)
+    food_detail = models.Food.objects.get(id=id)
 
     return render(request, 'shop-details.html', locals())
 
@@ -132,14 +150,14 @@ def details(request, id):
 def blog_details(request, id):   
     menu = models.Menu.objects.all()
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-    food = models.ShopFood.objects.all()
+    food = models.Food.objects.all()
     news_blog = models.News.objects.get(id=id)
     news = models.News.objects.all()
-    # comment = models.Review.objects.all()
+
+
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -155,40 +173,48 @@ def blog_details(request, id):
 
 def wishlist(request):
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-    food = models.ShopFood.objects.all()
-
+    food = models.Food.objects.all()
     news = models.News.objects.all()
 
+    wishlist_items = models.Wishlist.objects.all()
     return render(request, 'wishlist.html', locals())
+
+
+def add_to_wishlist(request, food_id):
+    food_item = get_object_or_404(models.Food, pk=food_id)
+    
+    # Создайте объект Wishlist и сохраните его в базе данных
+    wishlist_item, created = models.Wishlist.objects.get_or_create(
+        title=food_item.title,
+        price=food_item.price_now,
+        image=food_item.image,
+    )
+
+    return redirect('wishlist')
 
 
 def blogs(request):
     news = models.News.objects.all()
     settings = Settings.objects.latest('id')
-    post = models.Post.objects.all()
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     slideabout = models.SlideAbout.objects.latest('id')
-    food = models.ShopFood.objects.all()
+    food = models.Food.objects.all()
 
-    all_posts = models.Post.objects.all()
     posts_per_page = 3
-    
+    all_posts = models.News.objects.all()
     paginator = Paginator(all_posts, posts_per_page)
     
     page = request.GET.get('page')
     try:
-        posts = paginator.page(page)
+        news = paginator.page(page)
     except PageNotAnInteger:
-        # Если номер страницы не является целым числом, поставим его на первую страницу
-        posts = paginator.page(1)
+        news = paginator.page(1)
     except EmptyPage:
-        # Если номер страницы больше максимального, поставим на последнюю страницу
-        posts = paginator.page(paginator.num_pages)
+        news = paginator.page(paginator.num_pages)
     
 
     return render(request, 'blogs.html', locals())

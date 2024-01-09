@@ -48,22 +48,24 @@
                     <div class="footer-widget" data-aos="fade-up">
                         <h4>Недавний пост</h4>
                         {% for news in news %}
-                        <article class="article-item">
-                            <div class="image">
-                                <a href="{% url 'blog_details' news.id %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
-                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image.url}}" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="content">   
-                                <h6 class="lc-2 mb-10">
-                                    <a href="{% url 'blog_details' news.id %}" target="_self" title="Blog">{{news.title}}
-                                    </a>
-                                </h6>
-                                <ul class="blog-list list-unstyled">
-                                    <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{news.created_at}}</li>
-                                </ul>
-                            </div>
-                        </article>
+                            {% if forloop.counter <= 2 %}
+                                <article class="article-item">
+                                    <div class="image">
+                                        <a href="{% url 'blog_details' news.id %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{news.image.url}}" alt="Blog Image">
+                                        </a>
+                                    </div>
+                                    <div class="content">   
+                                        <h6 class="lc-2 mb-10">
+                                            <a href="{% url 'blog_details' news.id %}" target="_self" title="Blog">{{news.title}}
+                                            </a>
+                                        </h6>
+                                        <ul class="blog-list list-unstyled">
+                                            <li class="font-sm icon-start"><i class="fal fa-calendar-alt"></i>{{news.created_at}}</li>
+                                        </ul>
+                                    </div>
+                                </article>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>

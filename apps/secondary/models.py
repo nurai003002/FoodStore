@@ -171,6 +171,7 @@ class Menu(models.Model):
     descriptions = models.TextField(
         verbose_name = 'Описание'
     )
+    
     def __str__(self):
         return self.title
 
@@ -252,29 +253,6 @@ class ClientsInline(models.Model):
         unique_together = ('place_info', 'name')
 
 
-class Post(models.Model):
-    image = ResizedImageField(
-        force_format="WEBP", 
-        quality=100, 
-        upload_to='image_post/',
-        verbose_name="Фотография",
-        blank=True, null=True
-    )
-    descriptions = models.TextField(
-        verbose_name = 'Описание'
-    )
-    created_at = models.DateTimeField(
-        auto_now_add = True,
-        blank = True,null = True
-    )
-
-    def __str__(self):
-        return self.descriptions
-    
-    class Meta:
-        verbose_name = 'Публикация'
-        verbose_name_plural = 'Публикации'
-
 class AllFood(models.Model):
     image = ResizedImageField(
         force_format="WEBP", 
@@ -342,7 +320,7 @@ class News(models.Model):
     )
     created_at = models.DateTimeField(
         auto_now_add = True,
-        blank = True,null = True
+        blank = True, null = True
     )
     descriprions = RichTextField(
         verbose_name = 'Описание'
@@ -392,7 +370,6 @@ class Review(models.Model):
     comment = models.TextField(
         verbose_name = 'Комментарий'
     )
-    
 
     def __str__(self):
         return self.name
@@ -401,7 +378,7 @@ class Review(models.Model):
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
 
-class ShopFood(models.Model):
+class Food(models.Model):
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
@@ -430,4 +407,53 @@ class ShopFood(models.Model):
     class Meta:
         verbose_name = 'Еда в магазине'
         verbose_name_plural = 'Еда в магазине'
+        
 
+class Cart(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='image/',
+        verbose_name="Фото изделий",
+        blank=True, null=True
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Название"
+    )
+    price = models.CharField(
+        max_length=255, 
+        verbose_name='Цена сейчас'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзина'
+
+
+class Wishlist(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='image/',
+        verbose_name="Фото изделий",
+        blank=True, null=True
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Название"
+    )
+    price = models.CharField(
+        max_length=255,
+        verbose_name='Цена сейчас'
+    )
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Избранные'
+        verbose_name_plural = 'Избранные'
