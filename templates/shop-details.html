@@ -97,7 +97,7 @@
                                     <i class="fal fa-plus"></i>
                                 </div> 
                             </div>
-                            <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">В корзину</a>
+                            <a href="{% url 'cart' %}" class="btn btn-md btn-primary" title="Add to Cart" target="_self">В корзину</a>
                             <a href="checkout.html" class="btn btn-md btn-outline" title="Order Now" target="_self">
                                 Заказать сейчас</a>
                         </div>
@@ -168,13 +168,13 @@
                                         </a>
                                         <div class="hover-show">
                                             <div class="btn-groups">
-                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                <a href="shop-details.html" class="btn-icon" title="Просмотр" target="_self">
                                                     <i class="fal fa-eye"></i>
                                                 </a>
-                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                <a href="{% url 'cart' %}" class="btn-icon" title="В корзину" target="_self">
                                                     <i class="fal fa-shopping-cart"></i>
                                                 </a>
-                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                <a href="wishlist.html" class="btn-icon" title="В избранные" target="_self">
                                                     <i class="fal fa-heart"></i>
                                                 </a>
                                             </div>

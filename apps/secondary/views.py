@@ -125,6 +125,7 @@ def details(request, id):
     
     news = models.News.objects.all()
     food_detail = models.ShopFood.objects.get(id=id)
+    discount_id = models.Discount.objects.get(id=id)
 
     return render(request, 'shop-details.html', locals())
 

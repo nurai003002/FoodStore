@@ -392,6 +392,7 @@ class Review(models.Model):
     comment = models.TextField(
         verbose_name = 'Комментарий'
     )
+    
 
     def __str__(self):
         return self.name

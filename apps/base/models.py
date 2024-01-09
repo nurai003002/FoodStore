@@ -25,7 +25,13 @@ class Settings(models.Model):
     youtube = models.URLField(
         verbose_name = ' youtube URL'
     )
-    
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='user_image/',
+        verbose_name="Фото изделий",
+        blank=True, null=True
+    )
     def __str__(self):
         return self.phone
     

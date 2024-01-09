@@ -17,6 +17,8 @@ def index(request):
     allfood = models.AllFood.objects.all()
     lastpost = models.LastPost.objects.latest('id')
     news = models.News.objects.all()
+    
+
     return render(request, 'base/index.html', locals())
 
 
