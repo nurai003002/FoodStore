@@ -182,6 +182,11 @@ def wishlist(request):
     wishlist_items = models.Wishlist.objects.all()
     return render(request, 'wishlist.html', locals())
 
+def remove_from_wishlist(request, wishlist_item_id):
+    wishlist_item = get_object_or_404(models.Wishlist, pk=wishlist_item_id)
+    wishlist_item.delete()
+    
+    return redirect('wishlist')
 
 def add_to_wishlist(request, food_id):
     food_item = get_object_or_404(models.Food, pk=food_id)
